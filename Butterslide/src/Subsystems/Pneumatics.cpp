@@ -44,18 +44,12 @@ void Pneumatics::ChangeDriveMode(){
 		frontRight->Set(DoubleSolenoid::Value::kReverse);
 		rearLeft->Set(DoubleSolenoid::Value::kReverse);
 		rearRight->Set(DoubleSolenoid::Value::kReverse);
-		frontStrafe->Set(DoubleSolenoid::Value::kForward);
-		rearStrafe->Set(DoubleSolenoid::Value::kForward);
-
 	}
 	else {
 		frontLeft->Set(DoubleSolenoid::Value::kForward);
 		frontRight->Set(DoubleSolenoid::Value::kForward);
 		rearLeft->Set(DoubleSolenoid::Value::kForward);
 		rearRight->Set(DoubleSolenoid::Value::kForward);
-		frontStrafe->Set(DoubleSolenoid::Value::kReverse);
-		rearStrafe->Set(DoubleSolenoid::Value::kReverse);
-
 	}
 }
 

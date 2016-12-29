@@ -44,11 +44,32 @@ void Drivetrain::DrivingWithJoystick() {
 
 	leftSpeed = joy->GetY()- joy->GetZ();
 	rightSpeed = joy->GetY()*-1 - joy->GetZ() ;
-	frontStrafeSpeed = joy->GetX()*-1-joy->GetZ();
-	rearStrafeSpeed = joy->GetX()-joy->GetZ();
+	frontStrafeSpeed = joy->GetX()*-1;
+	rearStrafeSpeed = joy->GetX();
 	// Strafing isn't working properly.  Needs fix around this area maybe?
 
 	NormalizeInputs(leftSpeed, rightSpeed, frontStrafeSpeed, rearStrafeSpeed);
+
+	if (fabs(rearStrafeSpeed) > .25) {
+		//RobotMap::pneumaticsFrontStrafe->Set(DoubleSolenoid::Value::kForward);
+		RobotMap::pneumaticsRearStrafe->Set(DoubleSolenoid::Value::kForward);
+
+	}
+
+	else {
+		//RobotMap::pneumaticsFrontStrafe->Set(DoubleSolenoid::Value::kReverse);
+		RobotMap::pneumaticsRearStrafe->Set(DoubleSolenoid::Value::kReverse);
+	}
+
+	if (fabs(leftSpeed) < .07) {
+		leftSpeed=0;
+
+	}
+	if (fabs(rightSpeed) < .07) {
+		rightSpeed=0;
+
+	}
+
 	frontLeft->Set(leftSpeed);
 	rearLeft->Set(leftSpeed);
 	frontRight->Set(rightSpeed);
