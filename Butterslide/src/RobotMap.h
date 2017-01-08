@@ -13,6 +13,8 @@
 #define ROBOTMAP_H
 #include "WPILib.h"
 #include "AHRS.h"
+#include "CANTalon.h"
+#include "CANTalonSRX.h"
 
 
 /**
