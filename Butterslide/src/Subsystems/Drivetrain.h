@@ -13,7 +13,8 @@
 #define DRIVETRAIN_H
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
-
+#include "AHRS.h"
+#include "../RobotMap.h"
 /**
  *
  *
@@ -37,7 +38,7 @@ public:
 	void InitDefaultCommand();
 	void DrivingWithJoystick();
 	void NormalizeInputs(float&,float&,float&,float&);
-	float SmoothMotion(std::shared_ptr<CANTalon>, float speed, float accelLim);
+	float SmoothMotion(float motorSpeed, float speed, float accelLim);
 	bool fieldOrient;
 	void SetFieldOrient(bool);
 	bool GetFieldOrient();
