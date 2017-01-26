@@ -29,17 +29,13 @@
 								<option id="gnu.cpp.compiler.option.debugging.level.969129918" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.394786621" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${WPILIB}/cpp/current/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;C:\Users\CIS 4607\workspace\navx-mxp\cpp\include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc}\CTRE\cpp\include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc}\navx-mxp\cpp\include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc}/Butterslide/src&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;C:\frc\arm-frc-linux-gnueabi\include&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${WPILIB}/user/cpp/include&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.dialect.std.1060340803" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.cpp.compiler.dialect.c++1y" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.files.1036091103" name="Include files (-include)" superClass="gnu.cpp.compiler.option.include.files" useByScannerDiscovery="false" valueType="includeFiles">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc}\navx-mxp\cpp\include\AHRS.h&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;C:\Users\CIS 4607\workspace\navx-mxp\cpp\include\AHRS.h&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:\Users\CIS 4607\wpilib\user\cpp\include\AHRS.h&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:\Users\CIS 4607\wpilib\user\cpp\include\CANTalon.h&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1033680971" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
@@ -49,12 +45,10 @@
 									<listOptionValue builtIn="false" value="wpi"/>
 									<listOptionValue builtIn="false" value="CTRLib"/>
 									<listOptionValue builtIn="false" value="navx_frc_cpp"/>
+									<listOptionValue builtIn="false" value="FRC_NetworkCommunication"/>
 								</option>
 								<option id="gnu.cpp.link.option.paths.1566479969" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" useByScannerDiscovery="false" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;${WPILIB}/cpp/current/lib&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc}\CTRE\cpp\lib&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc}\navx-mxp\cpp\lib&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;C:\Users\CIS 4607\workspace\navx-mxp\cpp\lib&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${WPILIB}/user/cpp/lib&quot;"/>
 								</option>
 								<option id="gnu.cpp.link.option.flags.675338432" name="Linker flags" superClass="gnu.cpp.link.option.flags" useByScannerDiscovery="false" value="-Wl,-rpath,/opt/GenICam_v3_0_NI/bin/Linux32_ARM" valueType="string"/>
