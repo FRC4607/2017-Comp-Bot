@@ -1,8 +1,9 @@
 # FRC-2017
 
-This is a prototype "ButterSlide"  drivetrain for offseason practice.
+This is our 2017 robot for the Steamworks game
 
 
-1/8/2017:  
--Fully Functional!  
--Added NavX, and CTRE libraries to the actual project to build without installing them yourself.  
+Project Staus:
+
+1/28/17:
+Drivetrain and drive funtions are funtioning properly. Manipulators have been added but are currently being optimized and fine tuned. Integration of vision control is soon to come.
