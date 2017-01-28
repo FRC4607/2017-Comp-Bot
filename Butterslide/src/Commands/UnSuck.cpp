@@ -1,38 +1,39 @@
-#include "Shooting.h"
+#include "UnSuck.h"
 
-Shooting::Shooting() {
+UnSuck::UnSuck() {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(Robot::chassis.get());
 }
 
 // Called just before this Command runs the first time
-void Shooting::Initialize() {
+void UnSuck::Initialize() {
 
 }
 
 // Called repeatedly when this Command is scheduled to run
-void Shooting::Execute() {
-if(RobotMap::rpg1->Get() == 0){
-	Robot::rpg->ImaFireInMaleeba(1);
-}
+void UnSuck::Execute() {
 
-else {
-	Robot::rpg->ImaFireInMaleeba(0);
-}
+	if(RobotMap::ammoIntake->Get() == 0){
+			Robot::ammo->FloorIntakeSpeed(-1);
+		}
+		else{
+			Robot::ammo->FloorIntakeSpeed(0);
+		}
+
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool Shooting::IsFinished() {
-	return true;
+bool UnSuck::IsFinished() {
+	return false;
 }
 
 // Called once after isFinished returns true
-void Shooting::End() {
+void UnSuck::End() {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void Shooting::Interrupted() {
+void UnSuck::Interrupted() {
 
 }

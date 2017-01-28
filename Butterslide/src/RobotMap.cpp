@@ -61,22 +61,22 @@ void RobotMap::init() {
     drivetrainRearStrafe.reset(new CANTalon(6));
     lw->AddActuator("Drivetrain", "Rear Strafe", drivetrainRearStrafe);
     
-    pneumaticsFrontLeft.reset(new DoubleSolenoid(1, 4, 5));
+    pneumaticsFrontLeft.reset(new DoubleSolenoid(1, 0, 1));
     lw->AddActuator("Pneumatics", "Front Left", pneumaticsFrontLeft);
     
-    pneumaticsFrontRight.reset(new DoubleSolenoid(1, 7, 6));
+    pneumaticsFrontRight.reset(new DoubleSolenoid(1, 2, 3));
     lw->AddActuator("Pneumatics", "Front Right", pneumaticsFrontRight);
     
-    pneumaticsRearLeft.reset(new DoubleSolenoid(1, 2, 3));
+    pneumaticsRearLeft.reset(new DoubleSolenoid(1, 4, 5));
     lw->AddActuator("Pneumatics", "Rear Left", pneumaticsRearLeft);
     
-    pneumaticsRearRight.reset(new DoubleSolenoid(0, 5, 4));
+    pneumaticsRearRight.reset(new DoubleSolenoid(0, 6, 7));
     lw->AddActuator("Pneumatics", "Rear Right", pneumaticsRearRight);
     
-    pneumaticsFrontStrafe.reset(new DoubleSolenoid(0, 0, 0));
+    pneumaticsFrontStrafe.reset(new DoubleSolenoid(0, 0, 1));
     lw->AddActuator("Pneumatics", "Front Strafe", pneumaticsFrontStrafe);
     
-    pneumaticsRearStrafe.reset(new DoubleSolenoid(0, 0, 1));
+    pneumaticsRearStrafe.reset(new DoubleSolenoid(0, 2, 3));
     lw->AddActuator("Pneumatics", "Rear Strafe", pneumaticsRearStrafe);
     
     drivetrainAHRS.reset (new AHRS(SPI::Port::kMXP, 200));
