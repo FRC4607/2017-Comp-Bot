@@ -13,7 +13,7 @@ void Shooting::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void Shooting::Execute() {
 if(RobotMap::rpg1->Get() == 0){
-	Robot::rpg->ImaFireInMaleeba(.8);
+	Robot::rpg->ImaFireInMaleeba(1);
 }
 
 else {

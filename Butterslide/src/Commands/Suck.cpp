@@ -14,7 +14,7 @@ void Suck::Initialize() {
 void Suck::Execute() {
 
 	if(RobotMap::ammoIntake->Get() == 0){
-		Robot::ammo->FloorIntakeSpeed(.80);
+		Robot::ammo->FloorIntakeSpeed(1);
 	}
 	else{
 		Robot::ammo->FloorIntakeSpeed(0);

@@ -31,7 +31,7 @@ OI::OI() {
     tractionMode.reset(new JoystickButton(driver.get(), 3));
     tractionMode->WhenPressed(new ChangeMode(7));
 
-    fieldOrient.reset(new JoystickButton(driver.get(), 7));
+    fieldOrient.reset(new JoystickButton(driver.get(), 8));
     fieldOrient->WhenPressed(new ChangeMode(9));
 
     gyroReset.reset(new JoystickButton(driver.get(), 11));
