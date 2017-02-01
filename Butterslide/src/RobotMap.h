@@ -61,6 +61,11 @@ public:
 	static std::shared_ptr<CANTalon> rpg2;
 	static std::shared_ptr<CANTalon> rpg3;
 
+	//Fuel Shooter Encoder
+	static std::shared_ptr<Encoder> shooterEncoderRpg;
+
+	//Fuel Shooter PIDControler
+	static std::shared_ptr<PIDController> shooterPIDController;
 
 	// Fuel Floor Intake
 	static std::shared_ptr<CANTalon> ammoIntake;
