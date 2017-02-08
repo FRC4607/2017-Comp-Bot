@@ -14,7 +14,7 @@ void UnSuck::Initialize() {
 void UnSuck::Execute() {
 
 	if(RobotMap::ammoIntake->Get() == 0){
-			Robot::ammo->FloorIntakeSpeed(-1);
+			Robot::ammo->FloorIntakeSpeed(-.8);
 		}
 		else{
 			Robot::ammo->FloorIntakeSpeed(0);

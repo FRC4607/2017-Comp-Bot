@@ -62,13 +62,13 @@ void RobotMap::init() {
     drivetrainRearStrafe.reset(new CANTalon(6));
     lw->AddActuator("Drivetrain", "Rear Strafe", drivetrainRearStrafe);
     
-    pneumaticsFrontLeft.reset(new DoubleSolenoid(1, 0, 1));
+    pneumaticsFrontLeft.reset(new DoubleSolenoid(11, 0, 1));
     lw->AddActuator("Pneumatics", "Front Left", pneumaticsFrontLeft);
     
-    pneumaticsFrontRight.reset(new DoubleSolenoid(1, 2, 3));
+    pneumaticsFrontRight.reset(new DoubleSolenoid(11, 2, 3));
     lw->AddActuator("Pneumatics", "Front Right", pneumaticsFrontRight);
     
-    pneumaticsRearLeft.reset(new DoubleSolenoid(1, 4, 5));
+    pneumaticsRearLeft.reset(new DoubleSolenoid(11, 4, 5));
     lw->AddActuator("Pneumatics", "Rear Left", pneumaticsRearLeft);
     
     pneumaticsRearRight.reset(new DoubleSolenoid(0, 6, 7));

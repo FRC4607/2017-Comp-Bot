@@ -13,13 +13,13 @@ void Feed::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void Feed::Execute() {
-Robot::ammo->FeederBarSetSpeed(.05);
+Robot::ammo->FeederBarSetSpeed(.8);
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool Feed::IsFinished() {
-	return Robot::oi->getDriver()->GetRawButton(4);
+	return Robot::oi->getDriver()->GetRawButton(2);
 }
 
 // Called once after isFinished returns true

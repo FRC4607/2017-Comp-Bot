@@ -14,7 +14,7 @@ void Suck::Initialize() {
 void Suck::Execute() {
 
 	if(RobotMap::ammoIntake->Get() == 0){
-		Robot::ammo->FloorIntakeSpeed(1);
+		Robot::ammo->FloorIntakeSpeed(.8);
 	}
 	else{
 		Robot::ammo->FloorIntakeSpeed(0);
@@ -30,6 +30,7 @@ bool Suck::IsFinished() {
 
 // Called once after isFinished returns true
 void Suck::End() {
+
 
 }
 
