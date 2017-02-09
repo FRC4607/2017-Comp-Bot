@@ -47,7 +47,7 @@ OI::OI() {
     getItOut->WhenPressed(new UnSuck());
 
     loadItUp.reset(new JoystickButton(driver.get(), 4));
-    loadItUp->WhileHeld(new Feed());
+    loadItUp->WhenPressed(new Feed());
 
 
 

@@ -114,7 +114,7 @@ void RobotMap::init() {
 
     ammoIntake.reset(new CANTalon(10));
 
-    ammoLoader.reset(new CANTalon(11));
+    ammoLoader.reset(new CANTalon(13));
 
 
 
