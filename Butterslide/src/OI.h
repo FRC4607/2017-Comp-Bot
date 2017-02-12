@@ -25,6 +25,7 @@ private:
 	std::shared_ptr<JoystickButton> suckItUp;
 	std::shared_ptr<JoystickButton> loadItUp;
 	std::shared_ptr<JoystickButton> getItOut;
+	std::shared_ptr<JoystickButton> rotateToAngle;
 
 
 

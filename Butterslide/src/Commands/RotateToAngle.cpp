@@ -1,37 +1,34 @@
-#include "ShootSetPoint.h"
+#include "RotateToAngle.h"
 
-ShootSetPoint::ShootSetPoint(double setpoint) {
+RotateToAngle::RotateToAngle(double boat) {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(Robot::chassis.get());
-	this->setpoint=setpoint;
+	this->setpoint=boat;
 }
 
 // Called just before this Command runs the first time
-void ShootSetPoint::Initialize() {
-	Robot::rpg->SetSetpoint(setpoint);
-	Robot::rpg->Enable();
+void RotateToAngle::Initialize() {
+	Robot::drivetrain->SetSetpoint(RobotMap::drivetrainAHRS->GetAngle() + setpoint);
+	Robot::drivetrain->Enable();
 }
 
 // Called repeatedly when this Command is scheduled to run
-void ShootSetPoint::Execute() {
-
+void RotateToAngle::Execute() {
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool ShootSetPoint::IsFinished() {
-	return Robot::rpg->OnTarget();
-
+bool RotateToAngle::IsFinished() {
+	return Robot::drivetrain->OnTarget();
 }
 
 // Called once after isFinished returns true
-void ShootSetPoint::End() {
-	Robot::rpg->Disable();
-
+void RotateToAngle::End() {
+	Robot::drivetrain->Disable();
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ShootSetPoint::Interrupted() {
+void RotateToAngle::Interrupted() {
 	End();
 }
