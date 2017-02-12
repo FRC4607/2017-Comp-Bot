@@ -14,7 +14,7 @@ void Feed::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void Feed::Execute() {
 	if(RobotMap::ammoLoader->Get() == 0){
-		Robot::ammo->FeederBarSetSpeed(.25);
+		Robot::ammo->FeederBarSetSpeed(.4);
 	}
 
 	else{

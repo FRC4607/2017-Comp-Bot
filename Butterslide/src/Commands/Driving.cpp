@@ -39,12 +39,18 @@ bool Driving::IsFinished() {
 
 // Called once after isFinished returns true
 void Driving::End() {
-
+//	RobotMap::drivetrainFrontLeft->Set(0);
+//	RobotMap::drivetrainFrontRight->Set(0);
+//	RobotMap::drivetrainRearLeft->Set(0);
+//	RobotMap::drivetrainRearRight->Set(0);
+//	RobotMap::drivetrainFrontStrafe->Set(0);
+//	RobotMap::drivetrainRearStrafe->Set(0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void Driving::Interrupted() {
+	End();
 
 }
 

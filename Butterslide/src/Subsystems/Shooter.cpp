@@ -8,8 +8,6 @@ Shooter::Shooter() : PIDSubsystem("Shooter", 1.0, 0.0, 0.0, 0.0) {
 	gun = RobotMap::rpg1;
     SetAbsoluteTolerance(0.2);
     GetPIDController()->SetContinuous(true);
-    LiveWindow::GetInstance()->AddActuator("Shooter", "PIDSubsystem Controller", GetPIDController());
-	gun = RobotMap::rpg1;
 	encoderRpg = RobotMap::shooterEncoderRpg;
 	pIDControllerShooter = RobotMap::shooterPIDController;
 }
@@ -17,7 +15,7 @@ Shooter::Shooter() : PIDSubsystem("Shooter", 1.0, 0.0, 0.0, 0.0) {
 void Shooter::InitDefaultCommand() {
 	// Set the default command for a subsystem here.
 	// SetDefaultCommand(new MySpecialCommand());
-	SetDefaultCommand(new ShootSetPoint(-500));
+	// SetDefaultCommand(new ShootSetPoint(-500));
 }
 
 double Shooter::ReturnPIDInput() {
@@ -26,7 +24,7 @@ double Shooter::ReturnPIDInput() {
 }
 
 void Shooter::UsePIDOutput(double output) {
-	 gun->PIDWrite(output);
+	 gun->Set(output);
 }
 
 void Shooter::ImaFireInMaleeba(float speed){

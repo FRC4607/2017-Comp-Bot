@@ -147,6 +147,7 @@ void Robot::SmartDashboardStuff() {
 	        SmartDashboard::PutNumber(  "EncoderFL",          encoderFrontLeft->Get());
 	        SmartDashboard::PutNumber(  "EncoderFR",          encoderFrontRight->Get());
 	        SmartDashboard::PutNumber(  "EncoderRS",          encoderRightStrafe->Get());
+	        SmartDashboard::PutNumber("Encoder Rate", RobotMap::shooterEncoderRpg->GetRate());
 }
 START_ROBOT_CLASS(Robot);
 
