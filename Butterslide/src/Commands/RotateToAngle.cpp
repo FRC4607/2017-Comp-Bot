@@ -4,10 +4,7 @@ RotateToAngle::RotateToAngle(double boat) {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(Robot::chassis.get());
 	this->setpoint=boat;
-<<<<<<< HEAD
 	Requires(Robot::drivetrain.get());
-=======
->>>>>>> branch 'master' of https://github.com/FRC4607/FRC-2017.git
 }
 
 // Called just before this Command runs the first time
