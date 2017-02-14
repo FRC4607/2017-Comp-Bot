@@ -39,21 +39,12 @@ bool Driving::IsFinished() {
 
 // Called once after isFinished returns true
 void Driving::End() {
-<<<<<<< HEAD
 //	RobotMap::drivetrainFrontLeft->Set(0);
 //	RobotMap::drivetrainFrontRight->Set(0);
 //	RobotMap::drivetrainRearLeft->Set(0);
 //	RobotMap::drivetrainRearRight->Set(0);
 //	RobotMap::drivetrainFrontStrafe->Set(0);
 //	RobotMap::drivetrainRearStrafe->Set(0);
-=======
-	RobotMap::drivetrainFrontLeft->Set(0);
-	RobotMap::drivetrainFrontRight->Set(0);
-	RobotMap::drivetrainRearLeft->Set(0);
-	RobotMap::drivetrainRearRight->Set(0);
-	RobotMap::drivetrainFrontStrafe->Set(0);
-	RobotMap::drivetrainRearStrafe->Set(0);
->>>>>>> branch 'master' of https://github.com/FRC4607/FRC-2017.git
 }
 
 // Called when another command which requires one or more of the same
