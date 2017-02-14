@@ -27,7 +27,10 @@ private:
 	std::shared_ptr<JoystickButton> loadItUp;
 	std::shared_ptr<JoystickButton> getItOut;
 	std::shared_ptr<JoystickButton> rotateToAngle;
+<<<<<<< HEAD
 	std::shared_ptr<JoystickButton> enableDriving;
+=======
+>>>>>>> branch 'master' of https://github.com/FRC4607/FRC-2017.git
 
 
 

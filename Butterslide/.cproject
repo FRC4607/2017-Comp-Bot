@@ -34,8 +34,13 @@
 								</option>
 								<option id="gnu.cpp.compiler.option.dialect.std.1060340803" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.cpp.compiler.dialect.c++1y" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.files.1036091103" name="Include files (-include)" superClass="gnu.cpp.compiler.option.include.files" useByScannerDiscovery="false" valueType="includeFiles">
+<<<<<<< HEAD
 									<listOptionValue builtIn="false" value="&quot;${WPILIB}\user\cpp\include\AHRS.h&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${WPILIB}\user\cpp\include\CANTalon.h&quot;"/>
+=======
+									<listOptionValue builtIn="false" value="&quot;C:\Users\CIS Robotics\wpilib\user\cpp\include\AHRS.h&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:\Users\CIS Robotics\wpilib\user\cpp\include\CANTalon.h&quot;"/>
+>>>>>>> branch 'master' of https://github.com/FRC4607/FRC-2017.git
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1033680971" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
