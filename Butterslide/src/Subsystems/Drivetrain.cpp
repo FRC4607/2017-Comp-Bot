@@ -61,6 +61,12 @@ void Drivetrain::DrivingWithJoystick() {
 
 	leftSpeed = y- joy->GetZ();
 	rightSpeed = y*-1 - joy->GetZ() ;
+
+	if( Robot::oi->driverIsXbox){
+		leftSpeed = y- joy->GetX(Joystick::kRightHand);
+		rightSpeed = y*-1 - joy->GetX(Joystick::kRightHand);
+	}
+
 	frontStrafeSpeed = x*-2;
 	rearStrafeSpeed = x*2;
 	// Strafing isn't working properly.  Needs fix around this area maybe?

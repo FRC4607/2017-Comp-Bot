@@ -30,31 +30,61 @@ OI::OI() {
     driver.reset(new Joystick(0));
     captain.reset(new Joystick(1));
     
-    tractionMode.reset(new JoystickButton(driver.get(), 3));
+    int tractionModeBtn = 3,
+    	fieldOrientBtn = 7,
+		gyroResetBtn = 11,
+		fireAwayBtn = 1,
+		suckItUpBtn = 2,
+		getItOutBtn = 9,
+		loadItUpBtn = 4,
+		rotateToAngleBtn = 10,
+		enableDrivingBtn = 12;
+
+    if(captain->GetAxisCount() == 0){
+    	captain = driver;
+    }
+
+
+    if(driver->GetType() == GenericHID::HIDType::kHIDGamepad || driver->GetType() == GenericHID::HIDType::kXInputGamepad || driver->GetType() == GenericHID::HIDType::kXInputArcadePad){
+    	tractionModeBtn = 1, //A
+ 	   	fieldOrientBtn = 4,  //Y
+    	gyroResetBtn = 2, //B
+    	rotateToAngleBtn = 7, //Back
+    	enableDrivingBtn = 9; //Pushing in/clicking left stick
+    	driverIsXbox = true;
+    	if(captain == driver){
+    		fireAwayBtn = 6, //RB
+    		suckItUpBtn = 5, //LB
+    		getItOutBtn = 8, //Start
+    		loadItUpBtn = 3; //X
+    	}
+    }
+
+    tractionMode.reset(new JoystickButton(driver.get(), tractionModeBtn));
     tractionMode->WhenPressed(new ChangeMode(7));
 
-    fieldOrient.reset(new JoystickButton(driver.get(), 7));
+    fieldOrient.reset(new JoystickButton(driver.get(), fieldOrientBtn));
     fieldOrient->WhenPressed(new ChangeMode(9));
 
-    gyroReset.reset(new JoystickButton(driver.get(), 11));
+    gyroReset.reset(new JoystickButton(driver.get(), gyroResetBtn));
     gyroReset->WhenPressed(new ChangeMode(8));
 
-    fireAway.reset(new JoystickButton(captain.get(), 1));
+    fireAway.reset(new JoystickButton(captain.get(), fireAwayBtn));
     fireAway->WhenPressed(new Shooting());
 
-    suckItUp.reset(new JoystickButton(captain.get(), 2));
+    suckItUp.reset(new JoystickButton(captain.get(), suckItUpBtn));
     suckItUp->WhenPressed(new Suck());
 
-    getItOut.reset(new JoystickButton(captain.get(), 9));
+    getItOut.reset(new JoystickButton(captain.get(), getItOutBtn));
     getItOut->WhenPressed(new UnSuck());
 
-    loadItUp.reset(new JoystickButton(captain.get(), 4));
+    loadItUp.reset(new JoystickButton(captain.get(), loadItUpBtn));
     loadItUp->WhenPressed(new Feed());
 
-    rotateToAngle.reset(new JoystickButton(driver.get(), 10));
+    rotateToAngle.reset(new JoystickButton(driver.get(), rotateToAngleBtn));
     rotateToAngle->WhenPressed(new RotateToAngle(10));
 
-    enableDriving.reset(new JoystickButton(driver.get(), 12));
+    enableDriving.reset(new JoystickButton(driver.get(), enableDrivingBtn));
     enableDriving->WhenPressed(new EnableDriving());
 
 
