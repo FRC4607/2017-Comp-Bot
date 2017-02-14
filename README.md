@@ -6,4 +6,4 @@ This is our 2017 robot for the Steamworks game
 Project Staus:
 
 2/14/17:
-All manipulators and drivettrain working under manual control. Added PID to shooter and drivetrain. Vision data imput is yet to come.
+All manipulators and drivetrain working under manual control. Added PID to shooter and drivetrain. Vision data imput is yet to come.
