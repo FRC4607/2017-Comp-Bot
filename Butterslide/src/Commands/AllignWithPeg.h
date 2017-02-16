@@ -1,14 +1,12 @@
-#ifndef RotateToAngle_H
-#define RotateToAngle_H
+#ifndef AllignWithPeg_H
+#define AllignWithPeg_H
 
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
 
-class RotateToAngle : public Command {
+class AllignWithPeg : public Command {
 public:
-	double setpoint;
-
-	RotateToAngle(double);
+	AllignWithPeg();
 	void Initialize();
 	void Execute();
 	bool IsFinished();
@@ -16,4 +14,4 @@ public:
 	void Interrupted();
 };
 
-#endif  // RotateToAngle_H
+#endif  // AllignWithPeg_H

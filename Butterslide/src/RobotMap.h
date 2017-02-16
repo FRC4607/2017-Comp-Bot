@@ -17,6 +17,8 @@
 #include "CANTalonSRX.h"
 #include "DigitalSource.h"
 #include "Encoder.h"
+#include "Pixyi2C.h"
+#include "TPixy.h"
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into

@@ -15,8 +15,14 @@ void RotateToAngle::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void RotateToAngle::Execute() {
-	double error = Robot::drivetrain->GetSetpoint() - RobotMap::drivetrainAHRS->GetAngle();
-	double percentError = error/setpoint;
+	float percentError;
+	double error;
+	double currentAngle;
+	currentAngle = RobotMap::drivetrainAHRS->GetAngle();
+	error = setpoint - currentAngle;
+	percentError = error / setpoint;
+	SmartDashboard::PutNumber( "Percent Error", percentError);
+	SmartDashboard::PutNumber( "Absolute Error", error);
 }
 
 // Make this return true when this Command no longer needs to run execute()
