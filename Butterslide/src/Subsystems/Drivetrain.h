@@ -48,7 +48,8 @@ public:
 	bool GetFieldOrient();
 	double ReturnPIDInput();
 	void UsePIDOutput(double output);
-	void AllignWithGearPeg();
+	bool AllignWithGearPeg1();
+	bool AllignWithGearPeg2();
 	double x;
 	double y;
 	double centerX = 400;

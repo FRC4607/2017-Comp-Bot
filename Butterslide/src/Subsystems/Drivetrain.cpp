@@ -138,6 +138,37 @@ bool Drivetrain::GetFieldOrient(){
 	return fieldOrient;
 }
 
+bool Drivetrain::AllignWithGearPeg1() {
+
+	if (x > centerX) {
+		frontRight->Set(-.4);
+		frontLeft->Set(-.4);
+		rearLeft->Set(-.4);
+		rearRight->Set(-.4);
+		return false;
+	}
+
+	else {
+		return true;
+	}
+}
+
+bool Drivetrain::AllignWithGearPeg2() {
+
+	if (x < centerX) {
+		frontRight->Set(.4);
+		frontLeft->Set(.4);
+		rearLeft->Set(.4);
+		rearRight->Set(.4);
+		return false;
+	}
+
+	else {
+		return true;
+	}
+}
+
+
 float Drivetrain::SmoothMotion(float motorSpeed, float speed, float accelLim){
 
 		float outputSpeed, accelSign, accel;
