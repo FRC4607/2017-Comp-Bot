@@ -7,6 +7,7 @@
 class RotateToAngle : public Command {
 public:
 	double setpoint;
+
 	RotateToAngle(double);
 	void Initialize();
 	void Execute();

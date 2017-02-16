@@ -81,7 +81,7 @@ OI::OI() {
     loadItUp.reset(new JoystickButton(captain.get(), loadItUpBtn));
     loadItUp->WhenPressed(new Feed());
 
-    rotateToAngle.reset(new JoystickButton(driver.get(), rotateToAngleBtn));
+    rotateToAngle.reset(new JoystickButton(captain.get(), rotateToAngleBtn));
     rotateToAngle->WhenPressed(new RotateToAngle(10));
 
     enableDriving.reset(new JoystickButton(driver.get(), enableDrivingBtn));
