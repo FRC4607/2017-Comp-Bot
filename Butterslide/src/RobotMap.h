@@ -51,10 +51,13 @@ public:
 
 
 	// Drivetrain Encoders
-	static std::shared_ptr<Encoder> drivetrainEncoderFrontLeft;
-	static std::shared_ptr<Encoder> drivetrainEncoderFrontRight;
+	static std::shared_ptr<Encoder> drivetrainEncoderRearLeft;
+	static std::shared_ptr<Encoder> drivetrainEncoderRearRight;
 	static std::shared_ptr<Encoder> drivetrainEncoderRightStrafe;
 
+	static std::shared_ptr<PIDController> drivetrainLeftPIDController;
+	static std::shared_ptr<PIDController> drivetrainRightPIDController;
+	static std::shared_ptr<PIDController> drivetrainStrafePIDController;
 
 	// Fuel Shooter Motors
 	static std::shared_ptr<CANTalon> rpg1;
