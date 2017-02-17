@@ -34,6 +34,10 @@ Drivetrain::Drivetrain() : PIDSubsystem("Drivetrain" , .08 , 0 , 0) {
     encoderRightStrafe = RobotMap::drivetrainEncoderRightStrafe;
     fieldOrient = false;
     pIDControllerDrivetrain = RobotMap::drivetrainLeftPIDController;
+    leftSpeed=0;
+    rightSpeed=0;
+    frontStrafeSpeed=0;
+    rearStrafeSpeed=0;
 
     // these are where the inputs of x and y come into play. They are currently set to 1 just because I don't have the input yet.
     x = 1;
