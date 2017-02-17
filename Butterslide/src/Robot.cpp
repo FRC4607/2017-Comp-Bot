@@ -85,8 +85,8 @@ void Robot::TestPeriodic() {
 void Robot::SmartDashboardStuff() {
 
 	std::shared_ptr<AHRS> ahrs = RobotMap::drivetrainAHRS;
-	std::shared_ptr<Encoder> encoderFrontLeft = RobotMap::drivetrainEncoderFrontLeft;
-	std::shared_ptr<Encoder> encoderFrontRight = RobotMap::drivetrainEncoderFrontRight;
+	std::shared_ptr<Encoder> encoderFrontLeft = RobotMap::drivetrainEncoderRearLeft;
+	std::shared_ptr<Encoder> encoderFrontRight = RobotMap::drivetrainEncoderRearRight;
 	std::shared_ptr<Encoder> encoderRightStrafe = RobotMap::drivetrainEncoderRightStrafe;
 
 

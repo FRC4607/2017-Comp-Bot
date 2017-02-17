@@ -1,8 +1,12 @@
 #include "CANTalon.h"
 
 class CANTalonSpecial: CANTalon {
+private:
 public:
-	CANTalonSpecial();
+	CANTalonSpecial(int);
 	~CANTalonSpecial();
+	bool rotatePID;
 	void PIDWrite(double);
+	double GetRotateAdjustment();
+	double SetRotateAdjustment();
 };

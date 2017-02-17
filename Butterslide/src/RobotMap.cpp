@@ -98,19 +98,19 @@ void RobotMap::init() {
 
 
     drivetrainLeftPIDController.reset(new PIDController(1.0, 0.0, 0.0,/* F: 0.0, */
-    	drivetrainEncoderRearLeft, drivetrainRearLeft.get(), 0.02));
+    	drivetrainEncoderRearLeft.get(), drivetrainRearLeft.get(), 0.02));
     drivetrainLeftPIDController->SetContinuous(true);
     drivetrainLeftPIDController->SetAbsoluteTolerance(5);
     drivetrainLeftPIDController->SetOutputRange(-.9, .9);
 
     drivetrainRightPIDController.reset(new PIDController(1.0, 0.0, 0.0,/* F: 0.0, */
-    drivetrainEncoderRearRight, drivetrainRearRight.get(), 0.02));
+    drivetrainEncoderRearRight.get(), drivetrainRearRight.get(), 0.02));
     drivetrainRightPIDController->SetContinuous(true);
     drivetrainRightPIDController->SetAbsoluteTolerance(5);
     drivetrainRightPIDController->SetOutputRange(-.9, .9);
 
     drivetrainStrafePIDController.reset(new PIDController(1.0, 0.0, 0.0,/* F: 0.0, */
-    drivetrainEncoderRightStrafe, drivetrainRearStrafe.get(), 0.02));
+    drivetrainEncoderRightStrafe.get(), drivetrainRearStrafe.get(), 0.02));
     drivetrainStrafePIDController->SetContinuous(true);
     drivetrainStrafePIDController->SetAbsoluteTolerance(5);
     drivetrainStrafePIDController->SetOutputRange(-1.0, 1.0);

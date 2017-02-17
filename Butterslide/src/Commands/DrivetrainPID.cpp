@@ -1,7 +1,7 @@
 #include "DrivetrainPID.h"
 #include "RotateToAngle.h"
 
-DrivetrainPID::DrivetrainPID(double rightSetpoint, double leftSetpoint, double strafeSetpoint, bool velocityControl = false, bool rotationalControl = false, double rotateOffset = 0 ) {
+DrivetrainPID::DrivetrainPID(double rightSetpoint, double leftSetpoint, double strafeSetpoint, bool velocityControl, bool rotationalControl , double rotateOffset ) {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(Robot::chassis.get());
 	this->rightSetpoint = rightSetpoint;
@@ -33,6 +33,14 @@ void DrivetrainPID::Initialize() {
 	RobotMap::drivetrainRightPIDController->SetSetpoint(rightSetpoint);
 	RobotMap::drivetrainStrafePIDController->SetSetpoint(strafeSetpoint);
 
+	RobotMap::drivetrainFrontLeft->SetControlMode(frc::CANSpeedController::ControlMode::kFollower);
+	RobotMap::drivetrainFrontRight->SetControlMode(frc::CANSpeedController::ControlMode::kFollower);
+	RobotMap::drivetrainFrontStrafe->SetControlMode(frc::CANSpeedController::ControlMode::kFollower);
+
+	RobotMap::drivetrainFrontLeft->Set(RobotMap::drivetrainRearLeft->GetDeviceID());
+	RobotMap::drivetrainFrontRight->Set(RobotMap::drivetrainRearRight->GetDeviceID());
+	RobotMap::drivetrainFrontStrafe->Set(RobotMap::drivetrainRearStrafe->GetDeviceID());
+
 	if(rotationalControl){
 		new RotateToAngle(rotateOffset);
 	}
@@ -59,6 +67,10 @@ void DrivetrainPID::End() {
 	RobotMap::drivetrainLeftPIDController->Disable();
 	RobotMap::drivetrainRightPIDController->Disable();
 	RobotMap::drivetrainStrafePIDController->Disable();
+
+	RobotMap::drivetrainFrontLeft->SetControlMode(frc::CANSpeedController::ControlMode::kPercentVbus);
+	RobotMap::drivetrainFrontRight->SetControlMode(frc::CANSpeedController::ControlMode::kPercentVbus);
+	RobotMap::drivetrainFrontStrafe->SetControlMode(frc::CANSpeedController::ControlMode::kPercentVbus);
 }
 
 // Called when another command which requires one or more of the same
