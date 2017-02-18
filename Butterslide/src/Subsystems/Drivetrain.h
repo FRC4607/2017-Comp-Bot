@@ -46,6 +46,7 @@ public:
 	bool fieldOrient;
 	void SetFieldOrient(bool);
 	bool GetFieldOrient();
+	double* FieldOriented(double, double, double);
 	bool whileAnglePIDDriving = false;
 	float leftSpeed,rightSpeed,frontStrafeSpeed,rearStrafeSpeed;
 	double ReturnPIDInput();

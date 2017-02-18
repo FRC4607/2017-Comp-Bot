@@ -143,6 +143,26 @@ void Drivetrain::SetFieldOrient(bool value){
 bool Drivetrain::GetFieldOrient(){
 	return fieldOrient;
 }
+double* Drivetrain::FieldOriented(double x, double y, double z){
+	double adjustmentAngle;
+	float const PI= 3.14159;
+
+	if (fieldOrient==true) {
+
+			adjustmentAngle = ahrs->GetAngle()*PI/180+PI/2;
+
+		}
+		//x=Pilot->GetMagnitude()*cos(Pilot->GetDirectionRadians()-adjustmentAngle);
+		//y=Pilot->GetMagnitude()*sin(Pilot->GetDirectionRadians()-adjustmentAngle);
+
+		leftSpeed = y- z;
+		rightSpeed = y*-1 - z;
+
+		frontStrafeSpeed = x*-2;
+		rearStrafeSpeed = x*2;
+		double speeds[] = {leftSpeed, rightSpeed, frontStrafeSpeed, rearStrafeSpeed};
+		return speeds;
+}
 
 bool Drivetrain::AllignWithGearPeg1() {
 

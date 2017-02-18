@@ -6,7 +6,8 @@ public:
 	CANTalonSpecial(int);
 	~CANTalonSpecial();
 	bool rotatePID;
+	double rotateAdjustment;
 	void PIDWrite(double);
 	double GetRotateAdjustment();
-	double SetRotateAdjustment();
+	void SetRotateAdjustment(double);
 };
