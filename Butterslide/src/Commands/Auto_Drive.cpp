@@ -17,7 +17,7 @@
 AutoDrive::AutoDrive(float speed) {
 	this->speed=speed;
    AddSequential(new AutoForward(speed, 2));
-   AddSequential(new AutoForward(-speed/10,2));
+   AddSequential(new AutoForward(-speed/8,2));
 
 
 }
