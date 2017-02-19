@@ -143,7 +143,8 @@ void RobotMap::init() {
     shooterPIDController->SetAbsoluteTolerance(0);
     shooterPIDController->SetOutputRange(-1.0, 1.0);
 
-    ammoIntake.reset(new CANTalon(10));
+    ammoIntake.reset(new CANTalon(12));
+    // this should normally be 10, but is 12 to simulate climbing.
 
     ammoLoader.reset(new CANTalon(13));
 

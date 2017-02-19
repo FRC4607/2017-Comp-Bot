@@ -41,9 +41,9 @@ OI::OI() {
 		rotateToAngleBtn = 10,
 		enableDrivingBtn = 12;
 
-    if(captain->GetAxisCount() == 0){
-    	captain = driver;
-    }
+    //if(captain->GetAxisCount() == 0){
+   // 	captain = driver;
+    //}
 
 
     if(driver->GetType() == GenericHID::HIDType::kHIDGamepad || driver->GetType() == GenericHID::HIDType::kXInputGamepad || driver->GetType() == GenericHID::HIDType::kXInputArcadePad){
