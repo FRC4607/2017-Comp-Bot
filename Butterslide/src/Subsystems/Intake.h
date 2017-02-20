@@ -10,13 +10,15 @@ private:
 	// for methods that implement subsystem capabilities
 	std::shared_ptr<CANTalon> loader;
 	std::shared_ptr<CANTalon> sucker;
+	std::shared_ptr<CANTalon> climber;
 
 public:
 	Intake();
 
 	void InitDefaultCommand();
-	void FeederBarSetSpeed(float);
+	void ElevatorSpeed(float);
 	void FloorIntakeSpeed(float);
+	void ClimberSpeed(float);
 };
 
 #endif  // Intake_H

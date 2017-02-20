@@ -13,12 +13,12 @@ void Feed::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void Feed::Execute() {
-	if(RobotMap::ammoLoader->Get() == 0){
-		Robot::ammo->FeederBarSetSpeed(.4);
+	if(RobotMap::ammoIntake->Get() == 0){
+		Robot::ammo->FloorIntakeSpeed(.4);
 	}
 
 	else{
-		Robot::ammo->FeederBarSetSpeed(0);
+		Robot::ammo->FloorIntakeSpeed(0);
 	}
 
 

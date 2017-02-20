@@ -64,6 +64,7 @@ void Robot::DisabledPeriodic() {
 	Scheduler::GetInstance()->Run();
 
 }
+
 void Robot::RobotPeriodic(){
 //	std::vector<double> xArray = table->GetNumberArray("x", llvm::ArrayRef<double>());
 //	std::vector<double> yArray = table->GetNumberArray("y", llvm::ArrayRef<double>());
@@ -76,7 +77,6 @@ void Robot::AutonomousInit() {
 	if (autonomousCommand.get() != nullptr)
 		autonomousCommand->Start();
 }
-
 
 void Robot::AutonomousPeriodic() {
 	Scheduler::GetInstance()->Run();
@@ -106,7 +106,6 @@ void Robot::SmartDashboardStuff() {
 	std::shared_ptr<Encoder> encoderFrontLeft = RobotMap::drivetrainEncoderRearLeft;
 	std::shared_ptr<Encoder> encoderFrontRight = RobotMap::drivetrainEncoderRearRight;
 	std::shared_ptr<Encoder> encoderRightStrafe = RobotMap::drivetrainEncoderRightStrafe;
-
 
 		    SmartDashboard::PutBoolean( "IMU_Connected",        ahrs->IsConnected());
 	        SmartDashboard::PutNumber(  "IMU_Yaw",              ahrs->GetYaw());

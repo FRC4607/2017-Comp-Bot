@@ -1,38 +1,41 @@
-#include "Shooting.h"
+#include "Climbing.h"
+#include "../Robot.h"
 
-Shooting::Shooting() {
+Climbing::Climbing() {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(Robot::chassis.get());
 }
 
 // Called just before this Command runs the first time
-void Shooting::Initialize() {
+void Climbing::Initialize() {
 
 }
 
 // Called repeatedly when this Command is scheduled to run
-void Shooting::Execute() {
-if(RobotMap::rpg1->Get() == 0){
-	Robot::rpg->ImaFireInMaleeba(-.50);
-}
+void Climbing::Execute() {
 
-else {
-	Robot::rpg->ImaFireInMaleeba(0);
-}
+	if(RobotMap::ropeMonster->Get() == 0){
+			Robot::ammo->ClimberSpeed(.85);
+		}
+
+		else{
+			Robot::ammo->ClimberSpeed(0);
+		}
+
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool Shooting::IsFinished() {
+bool Climbing::IsFinished() {
 	return true;
 }
 
 // Called once after isFinished returns true
-void Shooting::End() {
+void Climbing::End() {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void Shooting::Interrupted() {
+void Climbing::Interrupted() {
 
 }

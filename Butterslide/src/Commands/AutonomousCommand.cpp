@@ -24,15 +24,17 @@ AutoForward::AutoForward(float speed, float time) {
 
 // Called just before this Command runs the first time
 void AutoForward::Initialize() {
+	time = 3;
 	SetTimeout(time);
 }
 
 // Called repeatedly when this Command is scheduled to run
 void AutoForward::Execute() {
+	speed = .7;
 	RobotMap::drivetrainFrontLeft->Set(speed);
 	RobotMap::drivetrainRearLeft->Set(speed);
-	RobotMap::drivetrainFrontRight->Set(-speed);
-	RobotMap::drivetrainRearRight->Set(-speed);
+	RobotMap::drivetrainFrontRight->Set(speed);
+	RobotMap::drivetrainRearRight->Set(speed);
 
 }
 

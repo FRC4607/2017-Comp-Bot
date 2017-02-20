@@ -2,8 +2,9 @@
 #include "../RobotMap.h"
 
 Intake::Intake() : Subsystem("Intake") {
-	loader = RobotMap::ammoLoader;
+	loader = RobotMap::ammoElevator;
 	sucker = RobotMap::ammoIntake;
+	climber = RobotMap::ropeMonster;
 }
 
 void Intake::InitDefaultCommand() {
@@ -14,10 +15,14 @@ void Intake::InitDefaultCommand() {
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
 
-void Intake::FeederBarSetSpeed(float speed){
+void Intake::ElevatorSpeed(float speed){
 	loader->Set(speed);
 }
 
 void Intake::FloorIntakeSpeed(float speed){
 	sucker->Set(speed);
+}
+
+void Intake::ClimberSpeed(float speed){
+	climber->Set(speed);
 }

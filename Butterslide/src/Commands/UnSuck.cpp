@@ -13,11 +13,11 @@ void UnSuck::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void UnSuck::Execute() {
 
-	if(RobotMap::ammoIntake->Get() == 0){
-			Robot::ammo->FloorIntakeSpeed(1);
+	if(RobotMap::ammoElevator->Get() == 0){
+			Robot::ammo->ElevatorSpeed(1);
 		}
 		else{
-			Robot::ammo->FloorIntakeSpeed(0);
+			Robot::ammo->ElevatorSpeed(0);
 		}
 
 }

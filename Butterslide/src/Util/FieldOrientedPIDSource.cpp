@@ -29,4 +29,3 @@ double FieldOrientedPIDSource::PIDGet(){
 FieldOrientedPIDSource::~FieldOrientedPIDSource() {
 	// TODO Auto-generated destructor stub
 }
-
