@@ -10,6 +10,13 @@ Shooter::Shooter() : PIDSubsystem("Shooter", 1.0, 0.0, 0.0, 0.0) {
     GetPIDController()->SetContinuous(true);
 	encoderRpg = RobotMap::shooterEncoderRpg;
 	pIDControllerShooter = RobotMap::shooterPIDController;
+	gun->SetFeedbackDevice(CANTalon::CtreMagEncoder_Relative);
+	gun->SetAllowableClosedLoopErr(0);
+	gun->SelectProfileSlot(0);
+	gun->SetF(0.0);
+	gun->SetP(0.1);
+	gun->SetI(0.0);
+	gun->SetD(0.0);
 }
 
 void Shooter::InitDefaultCommand() {
