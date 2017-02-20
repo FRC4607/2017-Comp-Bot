@@ -41,7 +41,7 @@ public:
     static std::shared_ptr<Intake> ammo;
     static std::shared_ptr<Shooter> rpg;
     std::unique_ptr<Command> driveAnd {
-    		new AutoDrive(-.3) };
+    		new AutoDrive(0) };
     	std::unique_ptr<Command> driveForwardAuto { new AutoDrive(-.5) };
     SendableChooser<Command*> autoChooser;
     double autoSpeed;
