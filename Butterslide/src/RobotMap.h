@@ -17,8 +17,8 @@
 #include "CANTalonSRX.h"
 #include "DigitalSource.h"
 #include "Encoder.h"
-#include "Pixyi2C.h"
-#include "TPixy.h"
+//#include "Pixyi2C.h"
+//#include "TPixy.h"
 #include "Util/CANTalonSpecial.h"
 #include "Util/FieldOrientedPIDSource.h"
 
