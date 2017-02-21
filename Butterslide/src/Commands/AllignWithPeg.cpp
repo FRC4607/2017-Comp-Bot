@@ -15,8 +15,7 @@ void AllignWithPeg::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void AllignWithPeg::Execute() {
 
-	Robot::drivetrain->AllignWithGearPeg1();
-	Robot::drivetrain->AllignWithGearPeg2();
+	Robot::drivetrain->AllignWithGearPeg();
 }
 
 // Make this return true when this Command no longer needs to run execute()

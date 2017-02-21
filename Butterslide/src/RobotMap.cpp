@@ -81,10 +81,10 @@ void RobotMap::init() {
     pneumaticsRearRight.reset(new DoubleSolenoid(0, 6, 7));
     lw->AddActuator("Pneumatics", "Rear Right", pneumaticsRearRight);
     
-    pneumaticsFrontStrafe.reset(new DoubleSolenoid(11, 1, 6));
+    pneumaticsFrontStrafe.reset(new DoubleSolenoid(11, 2, 3));
     lw->AddActuator("Pneumatics", "Front Strafe", pneumaticsFrontStrafe);
     
-    pneumaticsRearStrafe.reset(new DoubleSolenoid(11, 0, 7));
+    pneumaticsRearStrafe.reset(new DoubleSolenoid(11, 6, 7));
     lw->AddActuator("Pneumatics", "Rear Strafe", pneumaticsRearStrafe);
     
     lw->AddSensor("Shooter", "encoderRpg", shooterEncoderRpg);

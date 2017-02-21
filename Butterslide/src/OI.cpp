@@ -69,18 +69,19 @@ OI::OI() {
 
     gyroReset.reset(new JoystickButton(driver.get(), gyroResetBtn));
     gyroReset->WhenPressed(new ChangeMode(8));
-
-    fireAway.reset(new JoystickButton(captain.get(), fireAwayBtn));
+//ayyyyyyyyyyyyyyyyyyyyyyyyyyyy
+    fireAway.reset(new JoystickButton(driver.get(), fireAwayBtn));
     fireAway->WhenPressed(new Shooting());
 
-    suckItUp.reset(new JoystickButton(captain.get(), suckItUpBtn));
+    suckItUp.reset(new JoystickButton(driver.get(), suckItUpBtn));
     suckItUp->WhenPressed(new Suck());
 
-    getItOut.reset(new JoystickButton(captain.get(), getItOutBtn));
+    getItOut.reset(new JoystickButton(driver.get(), getItOutBtn));
     getItOut->WhenPressed(new UnSuck());
 
-    loadItUp.reset(new JoystickButton(captain.get(), loadItUpBtn));
+    loadItUp.reset(new JoystickButton(driver.get(), loadItUpBtn));
     loadItUp->WhenPressed(new Feed());
+    //ayyyyyyyyyyyyyyyyyyyyyyyyyyyy
 
     rotateToAngle.reset(new JoystickButton(captain.get(), rotateToAngleBtn));
     rotateToAngle->WhenPressed(new RotateToAngle(10));
@@ -93,9 +94,10 @@ OI::OI() {
 
     forwardPID.reset(new JoystickButton(driver.get(), 6));
     forwardPID->WhenPressed( new DrivetrainPID(36,36,0, false, false, 0));
-
-    liftOff.reset(new JoystickButton(captain.get(), 6));
+//ayyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+    liftOff.reset(new JoystickButton(driver.get(), 8));
     liftOff->WhenPressed(new Climbing());
+//ayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
 
 
     // SmartDashboard Buttons

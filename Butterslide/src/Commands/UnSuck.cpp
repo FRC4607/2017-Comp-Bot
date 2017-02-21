@@ -14,7 +14,7 @@ void UnSuck::Initialize() {
 void UnSuck::Execute() {
 
 	if(RobotMap::ammoElevator->Get() == 0){
-			Robot::ammo->ElevatorSpeed(1);
+			Robot::ammo->ElevatorSpeed(.8);
 		}
 		else{
 			Robot::ammo->ElevatorSpeed(0);
