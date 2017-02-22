@@ -30,7 +30,7 @@ void AutoForward::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void AutoForward::Execute() {
-	speed = 1;
+	//speed = 1;
 	RobotMap::drivetrainFrontLeft->Set(speed);
 	RobotMap::drivetrainRearLeft->Set(speed);
 	RobotMap::drivetrainFrontRight->Set(-speed);

@@ -14,7 +14,7 @@ void Feed::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void Feed::Execute() {
 	if(RobotMap::ammoIntake->Get() == 0){
-		Robot::ammo->FloorIntakeSpeed(-.55);
+		Robot::ammo->FloorIntakeSpeed(-.50);
 	}
 
 	else{

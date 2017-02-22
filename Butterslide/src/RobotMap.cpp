@@ -93,10 +93,10 @@ void RobotMap::init() {
 
     drivetrainAHRS.reset (new AHRS(SPI::Port::kMXP, 200));
 
-    drivetrainEncoderRearLeft.reset(new Encoder(0,1));
+    drivetrainEncoderRearLeft.reset(new Encoder(2,3));
     drivetrainEncoderRearLeft->SetDistancePerPulse(4*3.14159/256);
 
-    drivetrainEncoderRearRight.reset(new Encoder(2,3));
+    drivetrainEncoderRearRight.reset(new Encoder(0,1));
     drivetrainEncoderRearRight->SetDistancePerPulse(4*3.14159/256);
 
     drivetrainEncoderRightStrafe.reset(new Encoder(4,5));
