@@ -40,9 +40,9 @@ public:
     static std::shared_ptr<Pneumatics> pneumatics;
     static std::shared_ptr<Intake> ammo;
     static std::shared_ptr<Shooter> rpg;
-   std::unique_ptr<Command> driveAnd {
-    		new AutoDrive(0) };
-    	std::unique_ptr<Command> driveForwardAuto { new AutoDrive(-.5) };
+    std::unique_ptr<Command> gearAutoLeft {new AutoDrive(AutoDrive::Left) };
+    std::unique_ptr<Command> gearAutoMiddle {new AutoDrive(AutoDrive::Middle) };
+    std::unique_ptr<Command> gearAutoRight {new AutoDrive(AutoDrive::Right) };
     	SendableChooser<Command*> autoChooser;
     double autoSpeed;
     Robot();

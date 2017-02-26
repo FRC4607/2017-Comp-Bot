@@ -44,10 +44,11 @@ void Robot::RobotInit() {
 
 
 	// instantiate the command used for the autonomous period
-	SmartDashboard::GetNumber("Auto Speed", autoSpeed);
+//	SmartDashboard::GetNumber("Auto Speed", autoSpeed);
 
-		autoChooser.AddDefault("Doesn't Move or does it?", driveAnd.get());
-		autoChooser.AddObject("Forward", driveForwardAuto.get());
+		autoChooser.AddDefault("Left Peg", gearAutoLeft.get());
+	    autoChooser.AddObject("Middle Peg", gearAutoMiddle.get());
+	    autoChooser.AddObject("Right Peg", gearAutoRight.get());
 		SmartDashboard::PutData("Auto Mode", &autoChooser);
 
   }

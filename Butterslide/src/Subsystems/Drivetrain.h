@@ -51,11 +51,13 @@ public:
 	float leftSpeed,rightSpeed,frontStrafeSpeed,rearStrafeSpeed;
 	double ReturnPIDInput();
 	void UsePIDOutput(double output);
-	bool AllignWithGearPeg();
+	void AllignWithGearPeg();
 	double x;
 	double y;
-	double centerX = 400;
-	double centerY = 640;
+	double springX = 0;
+	double springY = 0;
+	double centerX = 200;
+	double centerY = 320;
 
 
 

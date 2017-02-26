@@ -18,11 +18,20 @@
  * Drive over the line and then shoot the ball. If the hot goal is not detected,
  * it will wait briefly.
  */
+
+//typedef Position StartingPosition;
+
+
 class AutoDrive: public CommandGroup {
 private:
-	float speed;
+	//StartingPosition startingPosition;
 public:
-	AutoDrive(float speed);
+	enum StartingPosition {
+		Left,
+		Middle,
+		Right
+	};
+	AutoDrive(StartingPosition);
 };
 
 #endif
