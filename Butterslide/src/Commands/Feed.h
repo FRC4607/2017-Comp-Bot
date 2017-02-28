@@ -6,7 +6,9 @@
 
 class Feed : public Command {
 public:
+	Feed(double speed);
 	Feed();
+	double speed;
 	void Initialize();
 	void Execute();
 	bool IsFinished();

@@ -7,10 +7,11 @@
 
 #include "FieldOrientedPIDSource.h"
 
-FieldOrientedPIDSource::FieldOrientedPIDSource() {
+FieldOrientedPIDSource::FieldOrientedPIDSource(std::shared_ptr<Encoder> primary, std::shared_ptr<Encoder> secondary) {
 	// TODO Auto-generated constructor stub
-//	this->primary = primary;
-	//this->secondary = secondary;
+	this->primary = primary;
+	this->secondary = secondary;
+
 	initialAngle = 0;
 	currentAngle = 0;
 	primaryPrior = 0;
@@ -19,10 +20,10 @@ FieldOrientedPIDSource::FieldOrientedPIDSource() {
 }
 double FieldOrientedPIDSource::PIDGet(){
 	double primaryDiff, secondaryDiff, totalDiff;
-	//primaryDiff = primary.Get() - primaryPrior;
-//	secondaryDiff = secondary.Get() - secondaryPrior;
-//	totalDiff = cos(initialAngle-currentAngle)*primaryDiff+sin(initialAngle-currentAngle)*secondaryDiff;
-//	total += totalDiff;
+	primaryDiff = primary->Get() - primaryPrior;
+	secondaryDiff = secondary->Get() - secondaryPrior;
+	totalDiff = cos((initialAngle-currentAngle)/180*3.14159)*primaryDiff+sin((initialAngle-currentAngle)*3.14159)*secondaryDiff;
+	total += totalDiff;
 	return 1;
 }
 

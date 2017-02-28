@@ -13,11 +13,11 @@
 
 class FieldOrientedPIDSource: public frc::PIDSource {
 public:
-	FieldOrientedPIDSource();
+	FieldOrientedPIDSource(std::shared_ptr<Encoder>, std::shared_ptr<Encoder>);
 	virtual ~FieldOrientedPIDSource();
 	double PIDGet();
 	double initialAngle, currentAngle, primaryPrior, secondaryPrior, total;
-	//Encoder primary, secondary;
+	std::shared_ptr<Encoder> primary, secondary;
 };
 
 #endif /* SRC_UTIL_FIELDORIENTEDPIDSOURCE_H_ */

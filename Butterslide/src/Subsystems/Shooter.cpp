@@ -37,5 +37,27 @@ void Shooter::UsePIDOutput(double output) {
 void Shooter::ImaFireInMaleeba(float speed){
 	gun->Set(speed);
 }
+double Shooter::CalculateShooterSpeedFPS(double distanceFromBoilerY){
+	const double shooterHeight = 1.75, g = 32.17, hoodAngle = 75*3.14159/180, boilerHeight = 8, boilerRadius = (21/2)/12;
+	double x = distanceFromBoilerY/12 + boilerRadius, shooterSpeed;
+
+
+	//Non-obvious calculation of shooterSpeed given distance from boiler
+	shooterSpeed = x * sqrt( g / ( 2 * tan(hoodAngle) * x - (boilerHeight - shooterHeight) ) );
+
+	/*
+	 * The above calculation is derived from the following equations:
+	 * xVel = cos(theta)*shooterSpeed
+	 * yVel = sin(theta)*shooterSpeed
+	 * x = xInitial + xVel * t
+	 * y = yInitial + yVel * t - 1/2 * g * t^2
+	 *
+	 * xInitial is determined to be 0, since there is no offset from the distance to the boiler being 0
+	 * because the distance to the boilerRadius is included in x
+	 * yInitial is determined to be the shooterHeight since the balls exit the shooter at the height of the shooter
+	 */
+
+	return shooterSpeed;
+}
 // Put methods for controlling this subsystem
 // here. Call these from Commands.

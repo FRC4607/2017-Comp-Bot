@@ -20,6 +20,7 @@ public:
 	void ImaFireInMaleeba(float speed);
 	double ReturnPIDInput();
 	void UsePIDOutput(double output);
+	double CalculateShooterSpeedFPS(double distanceFromBoilerY);
 };
 
 #endif  // Shooter_H
