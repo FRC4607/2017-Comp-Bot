@@ -21,6 +21,7 @@
 //#include "TPixy.h"
 #include "Util/CANTalonSpecial.h"
 #include "Util/FieldOrientedPIDSource.h"
+#include "Util/PixyPIDSource.h"
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -64,7 +65,7 @@ public:
 	static std::shared_ptr<PIDController> drivetrainStrafePIDController;
 
 	static std::shared_ptr<FieldOrientedPIDSource> drivetrainForwardPIDSource;
-	static std::shared_ptr<FieldOrientedPIDSource> drivetrainStrafePIDSource;
+	static std::shared_ptr<PixyPIDSource> drivetrainStrafePIDSource;
 
 	// Fuel Shooter Motors
 	static std::shared_ptr<CANTalon> rpg1;

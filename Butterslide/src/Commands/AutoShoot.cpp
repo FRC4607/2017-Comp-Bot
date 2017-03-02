@@ -9,6 +9,7 @@
 #include "ShootSetPoint.h"
 #include "Feed.h"
 #include "RotateToAngle.h"
+#include <cmath>
 
 AutoShoot::AutoShoot() {
 	double distanceFromBoilerY = 0, distanceFromBoilerX = 0, shooterSpeed = 0, feedSpeed = -.5, angle = 0;
@@ -16,9 +17,9 @@ AutoShoot::AutoShoot() {
 		//Because the following is executed immediately, might not need to be put in a command
 		//**************** Start TODO  Command**********************
 		//Get x and y offsets of boiler from vision
-		//distanceFromBoilerX = Robot::table.getNumber("Distance From Boiler X");
-		//distanceFromBoilerY = Robot::table.getNumber("Distance From Boiler Y");
-		//angle = arctan(x/y)/3.14159*180;
+		distanceFromBoilerX = Robot::table->GetNumber("Distance From Boiler X", 0.0);
+		distanceFromBoilerY = Robot::table->GetNumber("Distance From Boiler Y", 0.0);
+		angle = atan(distanceFromBoilerX/distanceFromBoilerY)/3.14159*180;
 		//**************** End TODO Command **********************
 
 		AddSequential(new RotateToAngle(angle));
@@ -28,7 +29,7 @@ AutoShoot::AutoShoot() {
 
 		//********************** Start TODO Command ****************************
 		//Get vision info for distance
-		//distanceFromBoilerY = Robot::table.getNumber("Distance From Boiler Y");
+		distanceFromBoilerY = Robot::table->GetNumber("Distance From Boiler Y", 0.0);
 
 		//Calculate shooter speed
 		shooterSpeed = Robot::rpg->CalculateShooterSpeedFPS(distanceFromBoilerY);

@@ -43,7 +43,7 @@ double Shooter::CalculateShooterSpeedFPS(double distanceFromBoilerY){
 
 
 	//Non-obvious calculation of shooterSpeed given distance from boiler
-	shooterSpeed = x * sqrt( g / ( 2 * tan(hoodAngle) * x - (boilerHeight - shooterHeight) ) );
+	shooterSpeed = x * sqrt( g / ( 2 * tan(hoodAngle) * x - (boilerHeight - shooterHeight) ) ) / cos(hoodAngle);
 
 	/*
 	 * The above calculation is derived from the following equations:

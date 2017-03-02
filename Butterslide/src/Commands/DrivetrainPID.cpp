@@ -15,6 +15,14 @@ DrivetrainPID::DrivetrainPID(double rightSetpoint, double leftSetpoint, double s
 
 // Called just before this Command runs the first time
 void DrivetrainPID::Initialize() {
+	 Robot::drivetrain->drivetrainPIDRunning = true;
+	double p, i, d;
+	p = SmartDashboard::GetNumber("Proportional term:", .03);
+	i = SmartDashboard::GetNumber("Integral term:", 0);
+	d = SmartDashboard::GetNumber("Derivative term:", 0);
+	RobotMap::drivetrainLeftPIDController->SetPID(p,i, d);
+	RobotMap::drivetrainRightPIDController->SetPID(p,i,d);
+	RobotMap::drivetrainStrafePIDController->SetPID(p,i,d);
 
 	//Set the encoders to return velocity if velocity control is desired
 	if( velocityControl){
@@ -91,6 +99,7 @@ void DrivetrainPID::End() {
 	RobotMap::drivetrainFrontLeft->SetControlMode(frc::CANSpeedController::ControlMode::kPercentVbus);
 	RobotMap::drivetrainFrontRight->SetControlMode(frc::CANSpeedController::ControlMode::kPercentVbus);
 	RobotMap::drivetrainFrontStrafe->SetControlMode(frc::CANSpeedController::ControlMode::kPercentVbus);
+	Robot::drivetrain->drivetrainPIDRunning = false;
 }
 
 // Called when another command which requires one or more of the same

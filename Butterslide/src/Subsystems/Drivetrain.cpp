@@ -129,7 +129,7 @@ double Drivetrain::ReturnPIDInput() {
 }
 
 void Drivetrain::UsePIDOutput(double output) {
-	if(whileAnglePIDDriving){
+	if( drivetrainPIDRunning){
 		leftSpeed = -output;
 		rightSpeed = -output;
 	}
@@ -150,13 +150,13 @@ void Drivetrain::SetFieldOrient(bool value){
 bool Drivetrain::GetFieldOrient(){
 	return fieldOrient;
 }
-double* Drivetrain::FieldOriented(double x, double y, double z){
-	double adjustmentAngle;
-	float const PI= 3.14159;
+double *Drivetrain::FieldOriented(double x, double y, double z){
+	//double adjustmentAngle;
+	//float const PI= 3.14159;
 
 	if (fieldOrient==true) {
 
-			adjustmentAngle = ahrs->GetAngle()*PI/180+PI/2;
+		//	adjustmentAngle = ahrs->GetAngle()*PI/180+PI/2;
 
 		}
 		//x=Pilot->GetMagnitude()*cos(Pilot->GetDirectionRadians()-adjustmentAngle);
@@ -167,7 +167,10 @@ double* Drivetrain::FieldOriented(double x, double y, double z){
 
 		frontStrafeSpeed = x*-2;
 		rearStrafeSpeed = x*2;
-		double speeds[] = {leftSpeed, rightSpeed, frontStrafeSpeed, rearStrafeSpeed};
+		speeds[0] = leftSpeed;
+		speeds[1] = rightSpeed;
+		speeds[2] = frontStrafeSpeed;
+		speeds[3] = rearStrafeSpeed;
 		return speeds;
 }
 
@@ -177,7 +180,7 @@ void Drivetrain::AllignWithGearPeg() {
 	  // base on formula from http://www.rjdown.co.uk/projects/bfbc2/fovcalculator.php
 	  const float PIXYCAM_HEIGHT_FT =  1.75; //The height of the center of the lens of the zed mounted on the robot in ft
 
-	  double zedValue, x, y, z, b, xdc, ydc; //Zed value is expected to be in feet
+	  double zedValue, x, y, z, b, xdc, ydc;
 	  const float PI = 3.14159;
 	  double width = 640;
 	  double height = 400;
@@ -187,8 +190,9 @@ void Drivetrain::AllignWithGearPeg() {
 	  double x2;
 	  double y2;
 
-
+	  if(!Robot::vision->empty){
 	  //These are going to be set to values from the pixy later on. Set to 1 for the time being, not an actual value.
+
 	  x = 1;
 	  y = 1;
 
@@ -220,6 +224,7 @@ void Drivetrain::AllignWithGearPeg() {
 	    y2= b*sin((90-xdc*HFOV/width) * PI/180); //Law of Sines
 	    springX = (x2 + x) / 2;
 	    springY = (y2 + y) / 2;
+	  }
 }
 
 

@@ -12,6 +12,7 @@
 #include "AutonomousCommand.h"
 #include "DrivetrainPID.h"
 #include "RotateToAngle.h"
+#include "AllignWithPeg.h"
 
 #include "../Robot.h"
 
@@ -23,9 +24,6 @@
 
 AutoDrive::AutoDrive(StartingPosition startingPosition) {
 
-double strafeDistance;
-double driveForwardDistance;
-const double STOPPING_DISTANCE_FROM_AIRSHIP = 2;
 
 	if (startingPosition == Middle) {
 		 AddSequential(new DrivetrainPID(5*12, 5*12, 0, false, false, 0));
@@ -41,13 +39,9 @@ const double STOPPING_DISTANCE_FROM_AIRSHIP = 2;
 		AddSequential(new DrivetrainPID(5*12+10, 5*12+10, 0, false, false, 0));
 		AddSequential(new RotateToAngle(30));
 	}
+	//Allign via strafing
+	AddSequential(new AllignWithPeg(1));
 
-	//Robot::drivetrain->AllignWithGearPeg();
-
-	strafeDistance = Robot::drivetrain->springX;
-
-	AddSequential(new DrivetrainPID(strafeDistance, strafeDistance, 0, false, false, 0));
-	//Robot::drivetrain->AllignWithGearPeg();
-	driveForwardDistance = Robot::drivetrain->springY - STOPPING_DISTANCE_FROM_AIRSHIP;
-	//AddSequential(new DrivetrainPID(0, 0, driveForwardDistance, false, false, 0));
+	//Allign via driving onto the peg
+	AddSequential(new AllignWithPeg(2));
 }
