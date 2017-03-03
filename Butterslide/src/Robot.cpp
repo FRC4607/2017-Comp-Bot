@@ -113,22 +113,22 @@ void Robot::SmartDashboardStuff() {
 
 		    SmartDashboard::PutBoolean( "IMU_Connected",        ahrs->IsConnected());
 	        SmartDashboard::PutNumber(  "IMU_Yaw",              ahrs->GetYaw());
-	        SmartDashboard::PutNumber(  "IMU_Pitch",            ahrs->GetPitch());
+	/*        SmartDashboard::PutNumber(  "IMU_Pitch",            ahrs->GetPitch());
 	        SmartDashboard::PutNumber(  "IMU_Roll",             ahrs->GetRoll());
 	        SmartDashboard::PutNumber(  "IMU_CompassHeading",   ahrs->GetCompassHeading());
 	        SmartDashboard::PutNumber(  "IMU_Update_Count",     ahrs->GetUpdateCount());
 	        SmartDashboard::PutNumber(  "IMU_Byte_Count",       ahrs->GetByteCount());
-
+*/
 	        /* These functions are compatible w/the WPI Gyro Class */
 	        SmartDashboard::PutNumber(  "IMU_TotalYaw",         ahrs->GetAngle());
 	        SmartDashboard::PutNumber(  "IMU_YawRateDPS",       ahrs->GetRate());
 
-	        SmartDashboard::PutNumber(  "IMU_Accel_X",          ahrs->GetWorldLinearAccelX());
+	/*        SmartDashboard::PutNumber(  "IMU_Accel_X",          ahrs->GetWorldLinearAccelX());
 	        SmartDashboard::PutNumber(  "IMU_Accel_Y",          ahrs->GetWorldLinearAccelY());
 	        SmartDashboard::PutBoolean( "IMU_IsMoving",         ahrs->IsMoving());
 	        SmartDashboard::PutNumber(  "IMU_Temp_C",           ahrs->GetTempC());
 	        SmartDashboard::PutBoolean( "IMU_IsCalibrating",    ahrs->IsCalibrating());
-
+*/
 	        SmartDashboard::PutNumber(  "Velocity_X",           ahrs->GetVelocityX() );
 	        SmartDashboard::PutNumber(  "Velocity_Y",           ahrs->GetVelocityY() );
 	        SmartDashboard::PutNumber(  "Displacement_X",       ahrs->GetDisplacementX() );
@@ -138,7 +138,7 @@ void Robot::SmartDashboardStuff() {
 	        /* NOTE:  These values are not normally necessary, but are made available   */
 	        /* for advanced users.  Before using this data, please consider whether     */
 	        /* the processed data (see above) will suit your needs.                     */
-
+/*
 	        SmartDashboard::PutNumber(  "RawGyro_X",            ahrs->GetRawGyroX());
 	        SmartDashboard::PutNumber(  "RawGyro_Y",            ahrs->GetRawGyroY());
 	        SmartDashboard::PutNumber(  "RawGyro_Z",            ahrs->GetRawGyroZ());
@@ -149,6 +149,7 @@ void Robot::SmartDashboardStuff() {
 	        SmartDashboard::PutNumber(  "RawMag_Y",             ahrs->GetRawMagY());
 	        SmartDashboard::PutNumber(  "RawMag_Z",             ahrs->GetRawMagZ());
 	        SmartDashboard::PutNumber(  "IMU_Temp_C",           ahrs->GetTempC());
+	*/
 	        /* Omnimount Yaw Axis Information                                           */
 	        /* For more info, see http://navx-mxp.kauailabs.com/installation/omnimount  */
 	        AHRS::BoardYawAxis yaw_axis = ahrs->GetBoardYawAxis();
@@ -163,14 +164,15 @@ void Robot::SmartDashboardStuff() {
 	        /* orientation data.  All of the Yaw, Pitch and Roll Values can be derived  */
 	        /* from the Quaternions.  If interested in motion processing, knowledge of  */
 	        /* Quaternions is highly recommended.                                       */
-	        SmartDashboard::PutNumber(  "QuaternionW",          ahrs->GetQuaternionW());
+/*	        SmartDashboard::PutNumber(  "QuaternionW",          ahrs->GetQuaternionW());
 	        SmartDashboard::PutNumber(  "QuaternionX",          ahrs->GetQuaternionX());
 	        SmartDashboard::PutNumber(  "QuaternionY",          ahrs->GetQuaternionY());
-	        SmartDashboard::PutNumber(  "QuaternionZ",          ahrs->GetQuaternionZ());
+	     */   SmartDashboard::PutNumber(  "QuaternionZ",          ahrs->GetQuaternionZ());
 	        SmartDashboard::PutNumber(  "EncoderFL",          encoderFrontLeft->Get());
 	        SmartDashboard::PutNumber(  "EncoderFR",          encoderFrontRight->Get());
 	        SmartDashboard::PutNumber(  "EncoderRS",          encoderRightStrafe->Get());
-	        SmartDashboard::PutNumber("Encoder Rate", RobotMap::shooterEncoderRpg->GetRate());
+	        SmartDashboard::PutNumber("Shooter Encoder Rate", RobotMap::rpg1->GetEncVel());
+	        SmartDashboard::PutNumber("Shooter Speed", RobotMap::rpg1->GetSpeed());
 }
 START_ROBOT_CLASS(Robot);
 

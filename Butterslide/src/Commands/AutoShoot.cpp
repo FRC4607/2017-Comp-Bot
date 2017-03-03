@@ -39,7 +39,7 @@ AutoShoot::AutoShoot() {
 		//********************** End TODO Command ********************************
 
 		//Start up shooter at calculated shooter speed
-		AddParallel(new ShootSetPoint(shooterSpeed));
+		AddParallel(new ShootSetPointBB(shooterSpeed*12*1024/(4*3.14159)));
 
 		//Give the shooter time to get up to speed
 		AddSequential(new WaitCommand(.25));

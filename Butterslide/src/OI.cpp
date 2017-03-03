@@ -81,7 +81,7 @@ OI::OI() {
     getItOut->WhenPressed(new UnSuck());
 
     loadItUp.reset(new JoystickButton(captain.get(), loadItUpBtn));
-    loadItUp->WhenPressed(new Feed());
+    loadItUp->WhenPressed(new Feed(-2));
     //ayyyyyyyyyyyyyyyyyyyyyyyyyyyy
 
    rotateToAngle.reset(new JoystickButton(captain.get(), rotateToAngleBtn));
