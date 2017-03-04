@@ -12,6 +12,10 @@ void ShootSetPoint::Initialize() {
 	Robot::rpg->Enable();
 */
 	RobotMap::rpg1->SetControlMode(CANSpeedController::kSpeed);
+	//Sets PIDF terms, in that order f = feedforward.
+	//Feedforward of .1 is conservative and allows getting up to speed faster
+	//but p value then is smaller resulting in slow response time
+	RobotMap::rpg1->SetPID(.1,0,0,0.1);
 	RobotMap::rpg1->Set(setpoint);
 }
 
