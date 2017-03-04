@@ -11,6 +11,7 @@
 
 #include "AutonomousCommand.h"
 
+int count=0;
 /*AutoForward::AutoForward(float speed) {
 	Requires(Robot::drivetrain);
 		this->speed = speed;
@@ -20,26 +21,31 @@ AutoForward::AutoForward(float speed, float time) {
 	Requires(Robot::drivetrain.get());
 		this->speed = speed;
 		this->time = time;
+
+		SmartDashboard::PutString("AutoForward: speed: ",std::to_string(speed));
+		SmartDashboard::PutString("AutoForward: time: ",std::to_string(time));
 }
 
 // Called just before this Command runs the first time
 void AutoForward::Initialize() {
-	time = 5;
-	SetTimeout(time);
+	SetTimeout(this->time);
+	//frc::Command::SetTimeout(.5);
+	SmartDashboard::PutString("AutoForward: Initialize: time: ",std::to_string(time));
 }
 
 // Called repeatedly when this Command is scheduled to run
 void AutoForward::Execute() {
-	//speed = 1;
-	RobotMap::drivetrainFrontLeft->Set(speed);
-	RobotMap::drivetrainRearLeft->Set(speed);
-	RobotMap::drivetrainFrontRight->Set(-speed);
-	RobotMap::drivetrainRearRight->Set(-speed);
+	RobotMap::drivetrainFrontLeft->Set(this->speed);
+	RobotMap::drivetrainRearLeft->Set(this->speed);
+	RobotMap::drivetrainFrontRight->Set(-this->speed);
+	RobotMap::drivetrainRearRight->Set(-this->speed);
+	SmartDashboard::PutString("AutoForward: Execute count: ",std::to_string(++count));
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool AutoForward::IsFinished() {
+	SmartDashboard::PutString("AutoForward: IsFinished: IsTimedOut: ", std::to_string(IsTimedOut()));
 	return IsTimedOut();
 }
 

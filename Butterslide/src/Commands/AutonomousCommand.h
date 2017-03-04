@@ -26,7 +26,7 @@ private:
 float speed, time;
 public:
 	/*AutoForward(float speed);*/
-	AutoForward(float speed, float time);
+	AutoForward(float, float);
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

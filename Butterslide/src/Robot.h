@@ -34,6 +34,7 @@
 class Robot : public IterativeRobot {
 public:
 	std::unique_ptr<Command> autonomousCommand;
+	//Command* autonomousCommand;
 	static std::unique_ptr<OI> oi;
 	LiveWindow *lw = LiveWindow::GetInstance();
 	static std::shared_ptr<NetworkTable> table;
@@ -45,7 +46,8 @@ public:
     std::unique_ptr<Command> gearAutoLeft {new AutoDrive(AutoDrive::Left) };
     std::unique_ptr<Command> gearAutoMiddle {new AutoDrive(AutoDrive::Middle) };
     std::unique_ptr<Command> gearAutoRight {new AutoDrive(AutoDrive::Right) };
-    	SendableChooser<Command*> autoChooser;
+  //std::unique_ptr<Command> crossTheStreetMitchel {new AutoForward(.4 , 3) };
+    SendableChooser<Command*> autoChooser;
     double autoSpeed;
     Robot();
 	virtual void RobotInit();

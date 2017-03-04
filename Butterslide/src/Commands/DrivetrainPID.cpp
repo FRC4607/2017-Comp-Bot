@@ -85,7 +85,7 @@ void DrivetrainPID::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool DrivetrainPID::IsFinished() {
-	return RobotMap::drivetrainLeftPIDController->OnTarget() && RobotMap::drivetrainRightPIDController->OnTarget() && RobotMap::drivetrainStrafePIDController->OnTarget();
+	return Robot::oi->getDriver()->GetRawButton(5)||RobotMap::drivetrainLeftPIDController->OnTarget() && RobotMap::drivetrainRightPIDController->OnTarget() && RobotMap::drivetrainStrafePIDController->OnTarget();
 }
 
 // Called once after isFinished returns true

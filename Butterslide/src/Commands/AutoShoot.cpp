@@ -6,7 +6,7 @@
  */
 
 #include "AutoShoot.h"
-#include "ShootSetPoint.h"
+#include "ShootSetPointBB.h"
 #include "Feed.h"
 #include "RotateToAngle.h"
 #include <cmath>

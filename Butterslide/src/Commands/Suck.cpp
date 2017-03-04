@@ -14,7 +14,7 @@ void Suck::Initialize() {
 void Suck::Execute() {
 
 	if(RobotMap::ammoElevator->Get() == 0){
-		Robot::ammo->ElevatorSpeed(-.75);
+		Robot::ammo->ElevatorSpeed(-1);
 	}
 	else{
 		Robot::ammo->ElevatorSpeed(0);
