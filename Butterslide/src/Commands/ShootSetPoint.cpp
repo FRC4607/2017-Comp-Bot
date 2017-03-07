@@ -15,7 +15,8 @@ void ShootSetPoint::Initialize() {
 	//Sets PIDF terms, in that order f = feedforward.
 	//Feedforward of .1 is conservative and allows getting up to speed faster
 	//but p value then is smaller resulting in slow response time
-	RobotMap::rpg1->SetPID(.1,0,0,0.1);
+	RobotMap::rpg1->SetValueMotionProfileEnable;
+	RobotMap::rpg1->SetPID(.037,0,.0018);
 	RobotMap::rpg1->Set(setpoint);
 }
 
@@ -28,7 +29,9 @@ void ShootSetPoint::Execute() {
 // Make this return true when this Command no longer needs to run execute()
 bool ShootSetPoint::IsFinished() {
 	//return Robot::rpg->OnTarget();
-	return RobotMap::rpg1->GetClosedLoopError() == 0;
+	//return RobotMap::rpg1->GetClosedLoopError() == 0;
+	return false;
+
 }
 
 // Called once after isFinished returns true

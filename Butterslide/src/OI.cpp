@@ -102,7 +102,7 @@ OI::OI() {
 //ayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
 
     shootSetPointBB.reset(new JoystickButton(captain.get(), 5));
-    shootSetPointBB->WhenPressed(new ShootSetPoint(-20750));
+    shootSetPointBB->WhenPressed(new ShootSetPoint(-6165));
 
     // SmartDashboard Buttons
     SmartDashboard::PutData("Traction Mode", new ChangeMode(7));

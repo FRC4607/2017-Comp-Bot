@@ -1,40 +1,32 @@
-#include "Suck.h"
+#include "SRXLib.h"
 
-Suck::Suck() {
+SRXLib::SRXLib() {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(Robot::chassis.get());
 }
 
 // Called just before this Command runs the first time
-void Suck::Initialize() {
+void SRXLib::Initialize() {
 
 }
 
 // Called repeatedly when this Command is scheduled to run
-void Suck::Execute() {
-
-	if(RobotMap::ammoElevator->Get() == 0){
-		Robot::ammo->ElevatorSpeed(-1);
-	}
-	else{
-		Robot::ammo->ElevatorSpeed(0);
-	}
+void SRXLib::Execute() {
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool Suck::IsFinished() {
-	return true;
+bool SRXLib::IsFinished() {
+	return false;
 }
 
 // Called once after isFinished returns true
-void Suck::End() {
-
+void SRXLib::End() {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void Suck::Interrupted() {
+void SRXLib::Interrupted() {
 
 }

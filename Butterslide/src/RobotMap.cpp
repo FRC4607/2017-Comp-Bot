@@ -126,6 +126,7 @@ void RobotMap::init() {
 
     rpg1.reset(new CANTalon(7));
     rpg1->SetSensorDirection(true);
+    rpg1->SetFeedbackDevice(CANTalon::FeedbackDevice::CtreMagEncoder_Relative);
     rpg2.reset(new CANTalon(8));
 
     //Setting rpg2 as a slave of rpg1 (does what rpg1 does)
