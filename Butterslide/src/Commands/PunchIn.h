@@ -1,12 +1,12 @@
-#ifndef SRXLib_H
-#define SRXLib_H
+#ifndef PunchIn_H
+#define PunchIn_H
 
 #include "../Robot.h"
 #include "Commands/Subsystem.h"
 
-class SRXLib : public Command {
+class PunchIn : public Command {
 public:
-	SRXLib();
+	PunchIn();
 	void Initialize();
 	void Execute();
 	bool IsFinished();
@@ -14,4 +14,4 @@ public:
 	void Interrupted();
 };
 
-#endif  // SRXLib_H
+#endif  // PunchIn_H

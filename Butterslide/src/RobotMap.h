@@ -54,6 +54,10 @@ public:
 	// NavX MXP Board
 	static std::shared_ptr<AHRS> drivetrainAHRS;
 
+	// Servos ayyy
+	static std::shared_ptr<Servo> leftGearServo;
+	static std::shared_ptr<Servo> rightGearServo;
+
 
 	// Drivetrain Encoders
 	static std::shared_ptr<Encoder> drivetrainEncoderRearLeft;
