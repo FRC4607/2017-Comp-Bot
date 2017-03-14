@@ -7,6 +7,7 @@
 class AllignWithPeg : public Command {
 public:
 	int mode;
+	static int const CENTER = 1, DRIVE_FORWARD = 2;
 	bool done = false;
 	const double STOPPING_DISTANCE_FROM_AIRSHIP = 2;
 	AllignWithPeg(int mode);

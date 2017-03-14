@@ -40,8 +40,8 @@ AutoDrive::AutoDrive(StartingPosition startingPosition) {
 		AddSequential(new RotateToAngle(30));
 	}
 	//Allign via strafing
-	AddSequential(new AllignWithPeg(1));
+	AddSequential(new AllignWithPeg(AllignWithPeg::CENTER));
 
 	//Allign via driving onto the peg
-	AddSequential(new AllignWithPeg(2));
+	AddSequential(new AllignWithPeg(AllignWithPeg::DRIVE_FORWARD));
 }

@@ -76,17 +76,14 @@ void Vision::AllignWithGearPeg() {
 
 	//Vertical field of view of the zed,
 	// base on formula from http://www.rjdown.co.uk/projects/bfbc2/fovcalculator.php
-	const float PIXYCAM_HEIGHT_FT = 1.75; //The height of the center of the lens of the zed mounted on the robot in ft
-
+	const float PIXYCAM_HEIGHT_FT = 1.75; //The height of the Pixycam mounted on the robot in ft
 	double zedValue, xPixels, yPixels, z, b, xdc, ydc, xPixels2, yPixels2;
 	const float PI = 3.14159;
-	double width = 640;
-	double height = 400;
-
+	double width = 640; //Width of PixyCam image
+	double height = 400; //Height of PixyCam image
 	double VFOV = 47;
 	double HFOV = 75;
-	double x2, x, y;
-	double y2;
+	double x2, x, y, y2;
 
 	if (!Robot::vision->empty) {
 		//These are going to be set to values from the pixy later on. Set to 1 for the time being, not an actual value.
