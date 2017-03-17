@@ -36,14 +36,15 @@ OI::OI() {
     driver.reset(new Joystick(0));
     captain.reset(new Joystick(1));
     
+
     int //tractionModeBtn = 3,
     	//fieldOrientBtn = 7,
 		//gyroResetBtn = 11,
 		fireAwayBtn = 1,
 		suckItUpBtn = 2,
 		getItOutBtn = 9,
-		loadItUpBtn = 4;
-		//rotateToAngleBtn = 10,
+		loadItUpBtn = 4,
+    	rotateToAngleBtn = 10;
 		//enableDrivingBtn = 12;
 
     //if(captain->GetAxisCount() == 0){
@@ -75,21 +76,21 @@ OI::OI() {
     //gyroReset.reset(new JoystickButton(driver.get(), gyroResetBtn));
     //gyroReset->WhenPressed(new ChangeMode(8));
 //ayyyyyyyyyyyyyyyyyyyyyyyyyyyy
-    fireAway.reset(new JoystickButton(captain.get(), fireAwayBtn));
+    fireAway.reset(new JoystickButton(driver.get(), fireAwayBtn));
     fireAway->WhenPressed(new Shooting());
 
-    suckItUp.reset(new JoystickButton(captain.get(), suckItUpBtn));
+    suckItUp.reset(new JoystickButton(driver.get(), suckItUpBtn));
     suckItUp->WhenPressed(new Suck());
 
-    getItOut.reset(new JoystickButton(captain.get(), getItOutBtn));
+    getItOut.reset(new JoystickButton(driver.get(), getItOutBtn));
     getItOut->WhenPressed(new UnSuck());
 
-    loadItUp.reset(new JoystickButton(captain.get(), loadItUpBtn));
+    loadItUp.reset(new JoystickButton(driver.get(), loadItUpBtn));
     loadItUp->WhenPressed(new Feed(-2));
     //ayyyyyyyyyyyyyyyyyyyyyyyyyyyy
 
-   //rotateToAngle.reset(new JoystickButton(captain.get(), rotateToAngleBtn));
-  // rotateToAngle->WhenPressed(new RotateToAngle(10));
+   rotateToAngle.reset(new JoystickButton(driver.get(), rotateToAngleBtn));
+   rotateToAngle->WhenPressed(new RotateToAngle(50));
 
    // enableDriving.reset(new JoystickButton(driver.get(), enableDrivingBtn));
   //  enableDriving->WhenPressed(new Driving());
@@ -100,12 +101,12 @@ OI::OI() {
     //forwardPID.reset(new JoystickButton(driver.get(), 6));
    // forwardPID->WhenPressed( new DrivetrainPID(36,36,0, false, false, 0));
 //ayyyyyyyyyyyyyyyyyyyyyyyyyyyyy
-    liftOff.reset(new JoystickButton(captain.get(), 6));
+    liftOff.reset(new JoystickButton(driver.get(), 6));
     liftOff->WhenPressed(new Climbing());
 //ayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
 
-    shootSetPointBB.reset(new JoystickButton(captain.get(), 5));
-    shootSetPointBB->WhenPressed(new ShootSetPoint(-6165));
+    shootSetPointBB.reset(new JoystickButton(captain.get(), 7));
+    shootSetPointBB->WhenPressed(new ShootSetPoint(-2000));
 
     punchOut.reset(new JoystickButton(driver.get(), 1));
     punchOut->WhenPressed(new PunchOut());

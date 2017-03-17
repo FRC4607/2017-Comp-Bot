@@ -16,10 +16,14 @@ void ShootSetPoint::Initialize() {
 	//Feedforward of .1 is conservative and allows getting up to speed faster
 	//but p value then is smaller resulting in slow response time
 	RobotMap::rpg1->SetValueMotionProfileEnable;
-	RobotMap::rpg1->SetPID(.037,0,.0018);
+	//RobotMap::rpg1->SetPID(.035, 0, .0018, .040833);
+	RobotMap::rpg1->SetPID(.038, 0, .0018);
+	//RobotMap::rpg1->SetIzone(1);
+	//RobotMap::rpg1->SetCloseLoopRampRate(400);
+	std::cout << "setpoint: " << std::to_string(setpoint) << std::endl;
 	RobotMap::rpg1->Set(setpoint);
-}
 
+}
 // Called repeatedly when this Command is scheduled to run
 void ShootSetPoint::Execute() {
 	SmartDashboard::PutNumber("Shooter SRX Error:", RobotMap::rpg1->GetClosedLoopError());
@@ -30,6 +34,7 @@ void ShootSetPoint::Execute() {
 bool ShootSetPoint::IsFinished() {
 	//return Robot::rpg->OnTarget();
 	//return RobotMap::rpg1->GetClosedLoopError() == 0;
+	RobotMap::rpg1->Set(0);
 	return false;
 
 }
@@ -37,7 +42,7 @@ bool ShootSetPoint::IsFinished() {
 // Called once after isFinished returns true
 void ShootSetPoint::End() {
 	//Robot::rpg->Disable();
-	RobotMap::rpg1->SetControlMode(CANSpeedController::kPercentVbus);
+	//RobotMap::rpg1->SetControlMode(CANSpeedController::kPercentVbus);
 }
 
 // Called when another command which requires one or more of the same

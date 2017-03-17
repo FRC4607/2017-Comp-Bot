@@ -107,6 +107,7 @@ void Robot::TeleopInit() {
 void Robot::TeleopPeriodic() {
 	Scheduler::GetInstance()->Run();
 	SmartDashboardStuff();
+	Robot::vision->testPixy1();
 }
 
 void Robot::TestPeriodic() {

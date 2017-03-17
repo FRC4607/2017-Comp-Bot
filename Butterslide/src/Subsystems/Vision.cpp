@@ -9,7 +9,7 @@ SPI::Port port = SPI::Port::kOnboardCS0;
 PixySPI::PacketMapSet *packets;
 
 Vision::Vision() :
-		Subsystem("Vision") {
+				Subsystem("Vision") {
 	// Open a pipeline to a Pixy camera.
 	pixy1 = new PixySPI(port);
 	packets = pixy1->getPackets();
@@ -35,27 +35,36 @@ void Vision::testPixy1() {
 	int ret = pixy1->readPackets();
 	pixy1->setDebugLvl(0);
 
-	/*SmartDashboard::PutString("Pixy Vision: packets size: ", std::to_string(packets->size()));
+	SmartDashboard::PutString("Pixy Vision: packets size: ", std::to_string(packets->size()));
 
-	 for(int i = 1; i <= pixy1->getPixySigCount() ; i++) {
-	 SmartDashboard::PutString("Pixy Vision: Signature: ", std::to_string(i));
+//	for(int i = 1; i <= pixy1->getPixySigCount() ; i++) {
+//		SmartDashboard::PutString("Pixy Vision: Signature: ", std::to_string(i));
+//
+//		SmartDashboard::PutString("Pixy Vision: packet: " + std::to_string(i) + ": size: ", std::to_string(packets->at(i).size()));
+//
+//		// Loop through the packets for this signature.
+//		for(int j=0; j < packets->at(i).size(); j++) {
+//			SmartDashboard::PutString("Pixy Vision: " + std::to_string(i) + ": X: ", std::to_string(packets->at(i).at(j).X));
+//			SmartDashboard::PutString("Pixy Vision: " + std::to_string(i) + ": Y: ", std::to_string(packets->at(i).at(j).Y));
+//			SmartDashboard::PutString("Pixy Vision: " + std::to_string(i) + ": Width: ", std::to_string(packets->at(i).at(j).Width));
+//			SmartDashboard::PutString("Pixy Vision: " + std::to_string(i) + ": Height: ", std::to_string(packets->at(i).at(j).Height));
+//		}
+//	}
 
-	 SmartDashboard::PutString("Pixy Vision: packet: " + std::to_string(i) + ": size: ", std::to_string(packets->at(i).size()));
-
-	 // Loop through the packets for this signature.
-	 for(int j=0; j < packets->at(i).size(); j++) {
-	 SmartDashboard::PutString("Pixy Vision: " + std::to_string(i) + ": X: ", std::to_string(packets->at(i).at(j).X));
-	 SmartDashboard::PutString("Pixy Vision: " + std::to_string(i) + ": Y: ", std::to_string(packets->at(i).at(j).Y));
-	 SmartDashboard::PutString("Pixy Vision: " + std::to_string(i) + ": Width: ", std::to_string(packets->at(i).at(j).Width));
-	 SmartDashboard::PutString("Pixy Vision: " + std::to_string(i) + ": Height: ", std::to_string(packets->at(i).at(j).Height));
-	 }
-	 }
-	 */
 	int area = 0, tempMax1 = -1, tempMax2 = -2;
 	for (int i = 1; i <= pixy1->getPixySigCount(); i++) {
 
+		SmartDashboard::PutString("Pixy Vision: Signature: ", std::to_string(i));
+
+		SmartDashboard::PutString("Pixy Vision: packet: " + std::to_string(i) + ": size: ", std::to_string(packets->at(i).size()));
+
 		// Loop through the packets for this signature.
 		for (int j = 0; j < packets->at(i).size(); j++) {
+			SmartDashboard::PutString("Pixy Vision: " + std::to_string(i) + ": X: ", std::to_string(packets->at(i).at(j).X));
+			SmartDashboard::PutString("Pixy Vision: " + std::to_string(i) + ": Y: ", std::to_string(packets->at(i).at(j).Y));
+			SmartDashboard::PutString("Pixy Vision: " + std::to_string(i) + ": Width: ", std::to_string(packets->at(i).at(j).Width));
+			SmartDashboard::PutString("Pixy Vision: " + std::to_string(i) + ": Height: ", std::to_string(packets->at(i).at(j).Height));
+
 			area = packets->at(i).at(j).Height * packets->at(i).at(j).Width;
 			if (area > tempMax1) {
 				tempMax2 = tempMax1;
