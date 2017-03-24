@@ -75,6 +75,7 @@ void Robot::DisabledInit(){
 
 void Robot::DisabledPeriodic() {
 	Scheduler::GetInstance()->Run();
+	Robot::vision->displayPixy();
 
 }
 
@@ -83,6 +84,7 @@ void Robot::RobotPeriodic(){
 //	std::vector<double> yArray = table->GetNumberArray("y", llvm::ArrayRef<double>());
 //	std::vector<double> widthArray = table->GetNumberArray("width", llvm::ArrayRef<double>());
 //	std::vector<double> heightArray = table->GetNumberArray("height", llvm::ArrayRef<double>());
+	Robot::vision->displayPixy();
 }
 
 void Robot::AutonomousInit() {
@@ -93,6 +95,7 @@ void Robot::AutonomousInit() {
 
 void Robot::AutonomousPeriodic() {
 	Scheduler::GetInstance()->Run();
+	Robot::vision->displayPixy();
 }
 
 void Robot::TeleopInit() {
@@ -107,6 +110,7 @@ void Robot::TeleopInit() {
 void Robot::TeleopPeriodic() {
 	Scheduler::GetInstance()->Run();
 	SmartDashboardStuff();
+	Robot::vision->displayPixy();
 }
 
 void Robot::TestPeriodic() {

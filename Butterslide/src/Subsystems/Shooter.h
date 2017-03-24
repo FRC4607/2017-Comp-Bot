@@ -21,6 +21,14 @@ public:
 	double ReturnPIDInput();
 	void UsePIDOutput(double output);
 	double CalculateShooterSpeedFPS(double distanceFromBoilerY);
+
+	double m_p = .035;
+		double m_i = 0;
+		double m_d = .0018;
+		double m_f = .04945;
+		double m_rampRate = 400;
+		unsigned m_iz = 1;
+		double m_rpm = -3030;
 };
 
 #endif  // Shooter_H

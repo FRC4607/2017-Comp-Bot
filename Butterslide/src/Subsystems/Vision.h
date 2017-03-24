@@ -20,6 +20,9 @@ public:
 	bool bothTargets =  false;
 	double springX = 0;
 	double springY = 0;
+	void GetPacketsSig(int);
+	void displayPixy();
+	void displayPixy(int);
 
 };
 

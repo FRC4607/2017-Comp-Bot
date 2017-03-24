@@ -76,9 +76,9 @@ OI::OI() {
     //gyroReset->WhenPressed(new ChangeMode(8));
 //ayyyyyyyyyyyyyyyyyyyyyyyyyyyy
     fireAway.reset(new JoystickButton(captain.get(), fireAwayBtn));
-    fireAway->WhenPressed(new Shooting());
+   fireAway->WhenPressed(new Shooting());
 
-    suckItUp.reset(new JoystickButton(captain.get(), suckItUpBtn));
+  suckItUp.reset(new JoystickButton(captain.get(), suckItUpBtn));
     suckItUp->WhenPressed(new Suck());
 
     getItOut.reset(new JoystickButton(captain.get(), getItOutBtn));
@@ -104,7 +104,7 @@ OI::OI() {
     liftOff->WhenPressed(new Climbing());
 //ayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
 
-    shootSetPointBB.reset(new JoystickButton(captain.get(), 5));
+    shootSetPointBB.reset(new JoystickButton(driver.get(), 5));
     shootSetPointBB->WhenPressed(new ShootSetPoint(-6165));
 
     punchOut.reset(new JoystickButton(driver.get(), 1));
@@ -112,6 +112,11 @@ OI::OI() {
 
     punchIn.reset(new JoystickButton(driver.get(), 2));
     punchIn->WhenPressed(new PunchIn());
+
+    activateVision.reset(new JoystickButton(driver.get(), 10));
+    activateVision->WhenPressed(new AllignWithPeg(1));
+
+
     // SmartDashboard Buttons
     SmartDashboard::PutData("Traction Mode", new ChangeMode(7));
     SmartDashboard::PutData("Align with Gear Peg- CENTER", new AllignWithPeg(AllignWithPeg::CENTER));

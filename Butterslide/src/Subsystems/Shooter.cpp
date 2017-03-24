@@ -17,6 +17,13 @@ Shooter::Shooter() : PIDSubsystem("Shooter", 1.0, 0.0, 0.0, 0.0) {
 	gun->SetP(0.1);
 	gun->SetI(0.0);
 	gun->SetD(0.0);
+	SmartDashboard::PutNumber("Shooter RPM: ", m_rpm);
+	SmartDashboard::PutNumber("Shooter P: ", m_p);
+	SmartDashboard::PutNumber("Shooter I: ", m_i);
+	SmartDashboard::PutNumber("Shooter D: ", m_d);
+	SmartDashboard::PutNumber("Shooter F: ", m_f);
+	SmartDashboard::PutNumber("Shooter Ramp Rate: ", m_rampRate);
+	SmartDashboard::PutNumber("Shooter I Zone: ", m_iz);
 }
 
 void Shooter::InitDefaultCommand() {
