@@ -13,8 +13,8 @@ void PunchIn::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void PunchIn::Execute() {
 
-	RobotMap::leftGearServo->Set(.6);
-	RobotMap::rightGearServo->Set(.6);
+	RobotMap::leftGearServo->Set(-1);
+	RobotMap::rightGearServo->Set(-1);
 }
 
 // Make this return true when this Command no longer needs to run execute()

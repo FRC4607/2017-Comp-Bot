@@ -96,8 +96,11 @@ void RobotMap::init() {
 
     lw->AddActuator("Shooter", "PID Controller Shooter", shooterPIDController);
 
+
     drivetrainAHRS.reset (new AHRS(SPI::Port::kMXP, 200));
 
+   // drivetrainEncoderRearLeft->SetReverseDirection(true);
+   // drivetrainEncoderRearRight->SetReverseDirection(true);
     drivetrainEncoderRearLeft.reset(new Encoder(2,3));
     drivetrainEncoderRearLeft->SetDistancePerPulse(4*3.14159/256);
 

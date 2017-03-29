@@ -12,8 +12,8 @@ void PunchOut::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void PunchOut::Execute() {
-	RobotMap::leftGearServo->Set(1);
-	RobotMap::rightGearServo->Set(1);
+	RobotMap::leftGearServo->Set(.5);
+	RobotMap::rightGearServo->Set(.5);
 
 }
 

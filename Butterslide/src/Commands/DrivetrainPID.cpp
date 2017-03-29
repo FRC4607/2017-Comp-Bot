@@ -17,9 +17,11 @@ DrivetrainPID::DrivetrainPID(double rightSetpoint, double leftSetpoint, double s
 void DrivetrainPID::Initialize() {
 	 Robot::drivetrain->drivetrainPIDRunning = true;
 	double p, i, d;
-	p = SmartDashboard::GetNumber("Proportional term:", .03);
+	p = SmartDashboard::GetNumber("Proportional term:", .035);
 	i = SmartDashboard::GetNumber("Integral term:", 0);
-	d = SmartDashboard::GetNumber("Derivative term:", 0);
+	d = SmartDashboard::GetNumber("Derivative term:", .0018);
+	SmartDashboard::PutNumber("Left Error", RobotMap::drivetrainLeftPIDController->GetError());
+	SmartDashboard::PutNumber("Right Error", RobotMap::drivetrainRightPIDController->GetError());
 	RobotMap::drivetrainLeftPIDController->SetPID(p,i, d);
 	RobotMap::drivetrainRightPIDController->SetPID(p,i,d);
 	RobotMap::drivetrainStrafePIDController->SetPID(p,i,d);
