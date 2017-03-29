@@ -16,13 +16,20 @@ void ShootSetPoint::Initialize() {
 	//Feedforward of .1 is conservative and allows getting up to speed faster
 	//but p value then is smaller resulting in slow response time
 	RobotMap::rpg1->SetValueMotionProfileEnable;
-	RobotMap::rpg1->SetPID(.037,0,.0018);
+	SmartDashboard::PutNumber("Shooter RPM: ", setpoint);
 	RobotMap::rpg1->Set(setpoint);
 }
 
 // Called repeatedly when this Command is scheduled to run
 void ShootSetPoint::Execute() {
 	SmartDashboard::PutNumber("Shooter SRX Error:", RobotMap::rpg1->GetClosedLoopError());
+	RobotMap::rpg1->SetF(SmartDashboard::GetNumber("Shooter F: ", 0.0));
+	RobotMap::rpg1->SetP(SmartDashboard::GetNumber("Shooter P: ", 0.0));
+	RobotMap::rpg1->SetI(SmartDashboard::GetNumber("Shooter I: ", 0.0));
+	RobotMap::rpg1->SetD(SmartDashboard::GetNumber("Shooter D: ", 0.0));
+	RobotMap::rpg1->SetVoltageRampRate(SmartDashboard::GetNumber("Shooter Ramp Rate: ", 0.0));
+	RobotMap::rpg1->SetIzone(SmartDashboard::GetNumber("Shooter I Zone: ", 0.0));
+	RobotMap::rpg1->Set(SmartDashboard::GetNumber("Shooter RPM: ", 0.0));
 
 }
 

@@ -37,8 +37,6 @@ std::shared_ptr<CANTalon> RobotMap::ropeMonster;
 std::shared_ptr<CANTalon> RobotMap::rpg1;
 std::shared_ptr<CANTalon> RobotMap::rpg2;
 std::shared_ptr<CANTalon> RobotMap::rpg3;
-std::shared_ptr<Encoder> RobotMap::shooterEncoderRpg;
-std::shared_ptr<PIDController> RobotMap::shooterPIDController;
 std::shared_ptr<PIDController> RobotMap::drivetrainLeftPIDController;
 std::shared_ptr<PIDController> RobotMap::drivetrainRightPIDController;
 std::shared_ptr<PIDController> RobotMap::drivetrainStrafePIDController;
@@ -92,10 +90,6 @@ void RobotMap::init() {
     pneumaticsRearStrafe.reset(new DoubleSolenoid(11, 6, 7));
     lw->AddActuator("Pneumatics", "Rear Strafe", pneumaticsRearStrafe);
     
-    lw->AddSensor("Shooter", "encoderRpg", shooterEncoderRpg);
-
-    lw->AddActuator("Shooter", "PID Controller Shooter", shooterPIDController);
-
 
     drivetrainAHRS.reset (new AHRS(SPI::Port::kMXP, 200));
 
@@ -148,14 +142,6 @@ void RobotMap::init() {
     //setting rpg3 as a slave of rpg1 (does what rpg1 does)
     //rpg3->SetControlMode(frc::CANSpeedController::ControlMode::kFollower);
     //rpg3->Set(7);
-
-    shooterEncoderRpg.reset(new Encoder(6, 7, false, Encoder::k4X));
-    shooterEncoderRpg->SetDistancePerPulse(1.0);
-    shooterEncoderRpg->SetPIDSourceType(PIDSourceType::kRate);
-    shooterPIDController.reset(new PIDController(1.0, 0.0, 0.0,/* F: 0.0, */ shooterEncoderRpg.get(), rpg1.get(), 0.02));
-    shooterPIDController->SetContinuous(false);
-    shooterPIDController->SetAbsoluteTolerance(0);
-    shooterPIDController->SetOutputRange(-1.0, 1.0);
 
     ammoElevator.reset(new CANTalon(10));
     // this should normally be 10, but is 12 to simulate climbing.

@@ -4,19 +4,18 @@
 #include "LiveWindow/LiveWindow.h"
 #include "../Commands/ShootSetPoint.h"
 
-Shooter::Shooter() : PIDSubsystem("Shooter", 1.0, 0.0, 0.0, 0.0) {
+Shooter::Shooter() : Subsystem("Shooter") {
 	gun = RobotMap::rpg1;
-    SetAbsoluteTolerance(0.2);
-    GetPIDController()->SetContinuous(true);
-	encoderRpg = RobotMap::shooterEncoderRpg;
-	pIDControllerShooter = RobotMap::shooterPIDController;
 	gun->SetFeedbackDevice(CANTalon::CtreMagEncoder_Relative);
+	gun->SetSensorDirection(true);
 	gun->SetAllowableClosedLoopErr(0);
 	gun->SelectProfileSlot(0);
-	gun->SetF(0.0);
-	gun->SetP(0.1);
-	gun->SetI(0.0);
-	gun->SetD(0.0);
+	gun->SetF(m_f);
+	gun->SetP(m_p);
+	gun->SetI(m_i);
+	gun->SetD(m_d);
+	gun->SetVoltageRampRate(m_rampRate);
+	gun->SetIzone(m_iz);
 	SmartDashboard::PutNumber("Shooter RPM: ", m_rpm);
 	SmartDashboard::PutNumber("Shooter P: ", m_p);
 	SmartDashboard::PutNumber("Shooter I: ", m_i);
@@ -30,15 +29,6 @@ void Shooter::InitDefaultCommand() {
 	// Set the default command for a subsystem here.
 	// SetDefaultCommand(new MySpecialCommand());
 	// SetDefaultCommand(new ShootSetPoint(-500));
-}
-
-double Shooter::ReturnPIDInput() {
-	return encoderRpg->GetRate();
-
-}
-
-void Shooter::UsePIDOutput(double output) {
-	 gun->Set(output);
 }
 
 void Shooter::ImaFireInMaleeba(float speed){
