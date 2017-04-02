@@ -24,7 +24,7 @@ void AllignWithPeg::Execute() {
 		//Aligning to the gear peg by strafing
 		if (mode == CENTER) {
 			Robot::drivetrain->drivetrainPIDRunning = true;
-			double strafeDistance = Robot::drivetrain->springX;
+			double strafeDistance = Robot::drivetrain->springX; //add or subtract to make offset
 			Scheduler::GetInstance()->AddCommand(
 					new DrivetrainPID(strafeDistance, strafeDistance, 0,
 					false, false, 0));

@@ -103,6 +103,7 @@ OI::OI() {
 
     shootSetPointBB.reset(new JoystickButton(captain.get(), 5));
     shootSetPointBB->WhenPressed(new ShootSetPoint(200));
+    // Stops with button 13 on captain (in shootsetpointBB line 31)
 
     punchOut.reset(new JoystickButton(driver.get(), 1));
     punchOut->WhenPressed(new PunchOut());
