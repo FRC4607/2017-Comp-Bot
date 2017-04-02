@@ -36,22 +36,19 @@ OI::OI() {
     driver.reset(new Joystick(0));
     captain.reset(new Joystick(1));
     
-    int //tractionModeBtn = 3,
-    	//fieldOrientBtn = 7,
-		//gyroResetBtn = 11,
+    int tractionModeBtn = 3,
+    	fieldOrientBtn = 7,
+		gyroResetBtn = 11,
 		fireAwayBtn = 1,
 		suckItUpBtn = 2,
 		getItOutBtn = 9,
-		loadItUpBtn = 4;
-		//rotateToAngleBtn = 10,
-		//enableDrivingBtn = 12;
-
-    //if(captain->GetAxisCount() == 0){
-   // 	captain = driver;
-    //}
+		loadItUpBtn = 4,
+		rotateToAngleBtn = 10,
+		enableDrivingBtn = 12;
 
 
-    /*if(driver->GetType() == GenericHID::HIDType::kHIDGamepad || driver->GetType() == GenericHID::HIDType::kXInputGamepad || driver->GetType() == GenericHID::HIDType::kXInputArcadePad){
+
+    if(driver->GetType() == GenericHID::HIDType::kHIDGamepad || driver->GetType() == GenericHID::HIDType::kXInputGamepad || driver->GetType() == GenericHID::HIDType::kXInputArcadePad){
     	tractionModeBtn = 1, //A
  	   	fieldOrientBtn = 4,  //Y
     	gyroResetBtn = 2, //B
@@ -65,7 +62,7 @@ OI::OI() {
     		loadItUpBtn = 3; //X
     	}
     }
-*/
+
    // tractionMode.reset(new JoystickButton(driver.get(), tractionModeBtn));
    // tractionMode->WhenPressed(new ChangeMode(7));
 
