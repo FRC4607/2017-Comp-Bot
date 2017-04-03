@@ -93,13 +93,14 @@ void RobotMap::init() {
 
     drivetrainAHRS.reset (new AHRS(SPI::Port::kMXP, 200));
 
-   // drivetrainEncoderRearLeft->SetReverseDirection(true);
-   // drivetrainEncoderRearRight->SetReverseDirection(true);
     drivetrainEncoderRearLeft.reset(new Encoder(2,3));
     drivetrainEncoderRearLeft->SetDistancePerPulse(4*3.14159/256);
 
     drivetrainEncoderRearRight.reset(new Encoder(0,1));
     drivetrainEncoderRearRight->SetDistancePerPulse(4*3.14159/256);
+
+    drivetrainEncoderRearLeft->SetReverseDirection(false);
+    drivetrainEncoderRearRight->SetReverseDirection(true);
 
     drivetrainEncoderRightStrafe.reset(new Encoder(4,5));
     drivetrainEncoderRightStrafe->SetDistancePerPulse(4*3.14159/256);
@@ -108,7 +109,7 @@ void RobotMap::init() {
   //  drivetrainForwardPIDSource.reset(new FieldOrientedPIDSource(drivetrainEncoderRearLeft, drivetrainEncoderRightStrafe));
 
     drivetrainLeftPIDController.reset(new PIDController(.1, 0.0, 0.0,/* F: 0.0, */
-    	drivetrainEncoderRearLeft.get(), drivetrainRearLeft.get(), 0.02));
+    drivetrainEncoderRearLeft.get(), drivetrainRearLeft.get(), 0.02));
     drivetrainLeftPIDController->SetContinuous(true);
     drivetrainLeftPIDController->SetAbsoluteTolerance(5);
     drivetrainLeftPIDController->SetOutputRange(-.9, .9);

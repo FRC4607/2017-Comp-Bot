@@ -33,6 +33,7 @@
 
 class Robot : public IterativeRobot {
 public:
+	SendableChooser<Command*> autoChooser;
 	std::unique_ptr<Command> autonomousCommand;
 	//Command* autonomousCommand;
 	static std::unique_ptr<OI> oi;
@@ -47,7 +48,6 @@ public:
     std::unique_ptr<Command> gearAutoMiddle {new AutoDrive(AutoDrive::Middle) };
     std::unique_ptr<Command> gearAutoRight {new AutoDrive(AutoDrive::Right) };
   //std::unique_ptr<Command> crossTheStreetMitchel {new AutoForward(.4 , 3) };
-    SendableChooser<Command*> autoChooser;
     double autoSpeed;
     Robot();
 	virtual void RobotInit();

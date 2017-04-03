@@ -28,7 +28,7 @@ void ShootSetPointBB::Execute() {
 // Make this return true when this Command no longer needs to run execute()
 bool ShootSetPointBB::IsFinished() {
   //return Robot::rpg->OnTarget();
-  return Robot::oi->getCaptain()->GetRawButton(13);
+  return Robot::oi->getCaptain()->GetRawButton(3);
 }
 
 // Called once after isFinished returns true

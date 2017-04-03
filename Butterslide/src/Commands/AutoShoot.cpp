@@ -7,6 +7,7 @@
 
 #include "AutoShoot.h"
 #include "ShootSetPoint.h"
+#include "ShootSetPointBB.h"
 #include "Shooting.h"
 #include "Feed.h"
 #include "RotateToAngle.h"
@@ -51,7 +52,7 @@ AutoShoot::AutoShoot() {
 			sign = -1;
 		}
 		//Potentially need to change -20750 to -8192(Sensor units per 100 ms I think) or to -2400 (RPM)
-		AddParallel(new ShootSetPoint(-20750));
+		AddParallel(new ShootSetPointBB(-250));
 		//Give the shooter time to get up to speed
 		AddSequential(new WaitCommand(.25));
 
