@@ -54,7 +54,7 @@ AutoShoot::AutoShoot() {
 		//Potentially need to change -20750 to -8192(Sensor units per 100 ms I think) or to -2400 (RPM)
 		AddParallel(new ShootSetPointBB(-250));
 		//Give the shooter time to get up to speed
-		AddSequential(new WaitCommand(.25));
+		AddSequential(new WaitCommand(4));
 
 
 		//Turn the feeder on

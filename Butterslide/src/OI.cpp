@@ -47,7 +47,6 @@ OI::OI() {
 		enableDrivingBtn = 12;
 
 
-
     if(driver->GetType() == GenericHID::HIDType::kHIDGamepad || driver->GetType() == GenericHID::HIDType::kXInputGamepad || driver->GetType() == GenericHID::HIDType::kXInputArcadePad){
     	tractionModeBtn = 1, //A
  	   	fieldOrientBtn = 4,  //Y
@@ -63,6 +62,8 @@ OI::OI() {
     	}
     }
 
+// traction mode is not enabled anymore because we don't have air being used on our bot anymore to use it
+
    // tractionMode.reset(new JoystickButton(driver.get(), tractionModeBtn));
    // tractionMode->WhenPressed(new ChangeMode(7));
 
@@ -73,7 +74,7 @@ OI::OI() {
     //gyroReset->WhenPressed(new ChangeMode(8));
 //ayyyyyyyyyyyyyyyyyyyyyyyyyyyy
     fireAway.reset(new JoystickButton(captain.get(), fireAwayBtn));
-   fireAway->WhenPressed(new Shooting());
+    fireAway->WhenPressed(new Shooting());
 
     suckItUp.reset(new JoystickButton(captain.get(), suckItUpBtn));
     suckItUp->WhenPressed(new Suck());
@@ -102,7 +103,7 @@ OI::OI() {
 //ayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
 
     shootSetPointBB.reset(new JoystickButton(captain.get(), 5));
-    shootSetPointBB->WhenPressed(new ShootSetPoint(-200));
+    shootSetPointBB->WhenPressed(new ShootSetPoint(-2000));
     // Stops with button 3 on captain (in shootsetpointBB line 31)
 
     punchOut.reset(new JoystickButton(driver.get(), 1));

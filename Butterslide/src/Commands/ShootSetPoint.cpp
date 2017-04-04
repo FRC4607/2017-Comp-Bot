@@ -31,6 +31,13 @@ void ShootSetPoint::Execute() {
 	RobotMap::rpg1->SetIzone(SmartDashboard::GetNumber("Shooter I Zone: ", 0.0));
 	RobotMap::rpg1->Set(SmartDashboard::GetNumber("Shooter RPM: ", 0.0));
 
+	/*RobotMap::rpg1->SetP(.035);
+	RobotMap::rpg1->SetI(0);
+	RobotMap::rpg1->SetD(.0018);
+	RobotMap::rpg1->SetF(.05);
+	RobotMap::rpg1->SetIzone(1);
+	RobotMap::rpg1->Set(setpoint); //the rm passed by auton script
+*/
 }
 
 // Make this return true when this Command no longer needs to run execute()
