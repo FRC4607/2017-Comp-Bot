@@ -44,6 +44,7 @@ void ShootSetPoint::Execute() {
 bool ShootSetPoint::IsFinished() {
 	//return Robot::rpg->OnTarget();
 	//return RobotMap::rpg1->GetClosedLoopError() == 0;
+	return Robot::oi->getCaptain()->GetRawButton(3);
 	return false;
 
 }

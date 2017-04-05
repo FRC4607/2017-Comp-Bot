@@ -28,18 +28,21 @@ HopperAutoRed::HopperAutoRed() {
 
 
 	//Cross the baseline
-	AddSequential(new AutoForward(.3, 1));
+	AddSequential(new AutoForward(.3, 3));
 	AddSequential(new WaitCommand(.5));
 
 	//Strafe away from the wall to be able to rotate
-	AddSequential(new Strafe(.7,2));
-	AddSequential(new WaitCommand(2));
+	AddSequential(new Strafe(.4,2));
+	AddSequential(new WaitCommand(.5));
 
 	//Rotate would be here!
 
-	AddParallel(new ShootSetPoint(-2000), 10);
-	AddSequential(new Suck(), 3);
-	AddSequential(new WaitCommand(10));
+	AddParallel(new ShootSetPoint(-1800));
+	AddSequential(new Suck());
+	AddSequential(new WaitCommand(8));
+
+	AddParallel(new ShootSetPoint(0));
+	AddSequential(new Suck());
 
 
 
