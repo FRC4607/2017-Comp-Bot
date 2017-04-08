@@ -61,9 +61,11 @@ void Robot::RobotInit() {
 		//autonomousCommand.reset(new AutoForward(-.4 , 3));
 		//When ready to try 10kPa auto uncomment next line and comment out above line
 		//autonomousCommand.reset(new AutoShoot());
-		autoChooser.AddDefault("Hopper Shoot Blue", new HopperAutoRed);
+	    autoChooser.AddDefault("Cross Base Line Forward", new AutoForward(-.4 , 3));
+	    autoChooser.AddObject("Cross Base Line Backward", new AutoForward(.4 , 3));
+		autoChooser.AddObject("Hopper Shoot Blue", new HopperAutoRed());
 	    autoChooser.AddObject("AutoShoot Command", new AutoShoot());
-	    autoChooser.AddObject("Gearage Return State", new PunchIn());
+
 		SmartDashboard::PutData("Auto Mode", &autoChooser);
   }
 
@@ -185,6 +187,13 @@ void Robot::SmartDashboardStuff() {
 	        SmartDashboard::PutNumber(  "EncoderFL",          encoderFrontLeft->Get());
 	        SmartDashboard::PutNumber(  "EncoderFR",          encoderFrontRight->Get());
 	        SmartDashboard::PutNumber(  "EncoderRS",          encoderRightStrafe->Get());
+	        SmartDashboard::PutNumber(   "EncoderScaleFR",      encoderFrontRight->GetEncodingScale());
+	        SmartDashboard::PutNumber(   "EncoderScaleFL",      encoderFrontLeft->GetEncodingScale());
+	        SmartDashboard::PutNumber(   "EncoderPIDFL",      encoderFrontLeft->PIDGet());
+	        SmartDashboard::PutNumber(   "EncoderPIDFR",      encoderFrontRight->PIDGet());
+	        SmartDashboard::PutNumber(   "EncoderFLRate",       encoderFrontLeft->GetRate());
+	        SmartDashboard::PutNumber(   "EncoderFRRate",       encoderFrontRight->GetRate());
+
 	        SmartDashboard::PutNumber("Shooter Encoder Rate", RobotMap::rpg1->GetEncVel());
 	        SmartDashboard::PutNumber("Shooter Speed", RobotMap::rpg1->GetSpeed());
 }

@@ -6,9 +6,6 @@ Feed::Feed(double speed) {
 	// eg. Requires(Robot::chassis.get());
 	this->speed = speed;
 }
-Feed::Feed(){
-	speed = -2;
-}
 
 // Called just before this Command runs the first time
 void Feed::Initialize() {
@@ -17,19 +14,13 @@ void Feed::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void Feed::Execute() {
-	if(speed == -2){
-		if(RobotMap::ammoIntake->Get() == 0){
-			Robot::ammo->FloorIntakeSpeed(-.50);
-		}
-
-		else{
-			Robot::ammo->FloorIntakeSpeed(0);
-		}
-	}
-	else {
+	if(RobotMap::ammoIntake->Get() == 0){
 		Robot::ammo->FloorIntakeSpeed(speed);
 	}
 
+	else{
+		Robot::ammo->FloorIntakeSpeed(0);
+	}
 
 }
 

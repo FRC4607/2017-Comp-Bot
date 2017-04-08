@@ -99,8 +99,8 @@ void RobotMap::init() {
     drivetrainEncoderRearRight.reset(new Encoder(0,1));
     drivetrainEncoderRearRight->SetDistancePerPulse(4*3.14159/256);
 
-    drivetrainEncoderRearLeft->SetReverseDirection(false);
-    drivetrainEncoderRearRight->SetReverseDirection(true);
+    drivetrainEncoderRearLeft->SetReverseDirection(true);
+    drivetrainEncoderRearRight->SetReverseDirection(false);
 
     drivetrainEncoderRightStrafe.reset(new Encoder(4,5));
     drivetrainEncoderRightStrafe->SetDistancePerPulse(4*3.14159/256);
@@ -108,13 +108,13 @@ void RobotMap::init() {
   //  drivetrainStrafePIDSource.reset(new FieldOrientedPIDSource(drivetrainEncoderRightStrafe, drivetrainEncoderRearLeft));
   //  drivetrainForwardPIDSource.reset(new FieldOrientedPIDSource(drivetrainEncoderRearLeft, drivetrainEncoderRightStrafe));
 
-    drivetrainLeftPIDController.reset(new PIDController(.1, 0.0, 0.0,/* F: 0.0, */
+    drivetrainLeftPIDController.reset(new PIDController(.035, 0.0, .0018,/* F: 0.0, */
     drivetrainEncoderRearLeft.get(), drivetrainRearLeft.get(), 0.02));
     drivetrainLeftPIDController->SetContinuous(true);
     drivetrainLeftPIDController->SetAbsoluteTolerance(5);
     drivetrainLeftPIDController->SetOutputRange(-.9, .9);
 
-    drivetrainRightPIDController.reset(new PIDController(.1, 0.0, 0.0,/* F: 0.0, */
+    drivetrainRightPIDController.reset(new PIDController(.035, 0.0, .0018,/* F: 0.0, */
     drivetrainEncoderRearRight.get(), drivetrainRearRight.get(), 0.02));
     drivetrainRightPIDController->SetContinuous(true);
     drivetrainRightPIDController->SetAbsoluteTolerance(5);

@@ -7,7 +7,7 @@
 Shooter::Shooter() : Subsystem("Shooter") {
 	gun = RobotMap::rpg1;
 	gun->SetFeedbackDevice(CANTalon::CtreMagEncoder_Relative);
-	gun->SetSensorDirection(false);
+	gun->SetSensorDirection(true);
 	gun->SetAllowableClosedLoopErr(0);
 	gun->SelectProfileSlot(0);
 	gun->SetF(m_f);

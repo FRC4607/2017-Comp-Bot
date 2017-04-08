@@ -83,11 +83,11 @@ OI::OI() {
     getItOut->WhenPressed(new UnSuck());
 
     loadItUp.reset(new JoystickButton(captain.get(), loadItUpBtn));
-    loadItUp->WhenPressed(new Feed(-2));
+    loadItUp->WhenPressed(new Feed(-.85));
     //ayyyyyyyyyyyyyyyyyyyyyyyyyyyy
 
-   rotateToAngle.reset(new JoystickButton(driver.get(), 4));
-   rotateToAngle->WhenPressed(new RotateToAngle(420));
+   //rotateToAngle.reset(new JoystickButton(driver.get(), 4));
+   //rotateToAngle->WhenPressed(new RotateToAngle(420));
 
    // enableDriving.reset(new JoystickButton(driver.get(), enableDrivingBtn));
   //  enableDriving->WhenPressed(new Driving());
@@ -95,15 +95,15 @@ OI::OI() {
   //  strafePID.reset(new JoystickButton(driver.get(), 5));
    // strafePID->WhenPressed(new DrivetrainPID(0,0,36,false,false,0));
 
-    forwardPID.reset(new JoystickButton(driver.get(), 3));
-    forwardPID->WhenPressed( new DrivetrainPID(4,-4,0, false, false, 0));
+    //forwardPID.reset(new JoystickButton(driver.get(), 3));
+    //forwardPID->WhenPressed( new DrivetrainPID(25,-25,0, false, false, 0));
 //ayyyyyyyyyyyyyyyyyyyyyyyyyyyyy
-    liftOff.reset(new JoystickButton(driver.get(), 6));
+    liftOff.reset(new JoystickButton(captain.get(), 6));
     liftOff->WhenPressed(new Climbing());
 //ayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
 
     shootSetPointBB.reset(new JoystickButton(captain.get(), 5));
-    shootSetPointBB->WhenPressed(new ShootSetPoint(-2250));
+    shootSetPointBB->WhenPressed(new ShootSetPoint(-1900));
     // Stops with button 3 on captain (in shootsetpointBB line 31)
 
     punchOut.reset(new JoystickButton(driver.get(), 1));
@@ -112,8 +112,8 @@ OI::OI() {
     punchIn.reset(new JoystickButton(driver.get(), 2));
     punchIn->WhenPressed(new PunchIn());
 
-    activateVision.reset(new JoystickButton(captain.get(), 10));
-    activateVision->WhenPressed(new AllignWithPeg(1));
+    //activateVision.reset(new JoystickButton(captain.get(), 10));
+   // activateVision->WhenPressed(new AllignWithPeg(1));
 
 
     // SmartDashboard Buttons

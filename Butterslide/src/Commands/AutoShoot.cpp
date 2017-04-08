@@ -12,6 +12,7 @@
 #include "Feed.h"
 #include "RotateToAngle.h"
 #include "Strafe.h"
+#include "Suck.h"
 #include <cmath>
 
 AutoShoot::AutoShoot() {
@@ -43,7 +44,7 @@ AutoShoot::AutoShoot() {
 
 		//Start up shooter at calculated shooter speed
 		AddParallel(new ShootSetPointBB(shooterSpeed*12*1024/(4*3.14159)));
-*/
+
 		double sign;
 		if(DriverStation::GetInstance().GetAlliance() == DriverStation::kBlue){
 			sign = 1;
@@ -74,6 +75,22 @@ AutoShoot::AutoShoot() {
 
 		//Cross the baseline
 		AddSequential(new AutoForward(-.4, 3));
+		*/
+
+	AddParallel(new ShootSetPoint(-1900));
+		AddSequential(new WaitCommand(2.5));
+		AddSequential(new Suck());
+		AddParallel(new Feed(-.4));   //INTAKE TO USE ALL BALLS
+		AddSequential(new WaitCommand(7.5));
+
+//    Negative strafe goes left (RED), positive is right (BLUE)
+		AddParallel(new Feed(0));
+		AddSequential(new Strafe(.7,4.5));
+		AddSequential(new WaitCommand(.5));
+
+
+
+
 }
 
 AutoShoot::~AutoShoot() {

@@ -15,7 +15,7 @@ void Climbing::Initialize() {
 void Climbing::Execute() {
 
 	if(RobotMap::ropeMonster->Get() == 0){
-			Robot::ammo->ClimberSpeed(.85);
+			Robot::ammo->ClimberSpeed(-1);
 		}
 
 		else{
