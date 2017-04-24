@@ -50,6 +50,8 @@ public:
     std::unique_ptr<Command> gearAutoMiddle {new AutoDrive(AutoDrive::Middle) };
     std::unique_ptr<Command> gearAutoRight {new AutoDrive(AutoDrive::Right) };
   //std::unique_ptr<Command> crossTheStreetMitchel {new AutoForward(.4 , 3) };
+    float desiredDistance = 2;
+    float desiredX = 640;
     double autoSpeed;
     Robot();
 	virtual void RobotInit();

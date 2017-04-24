@@ -41,6 +41,7 @@ public:
 	Drivetrain();
 	void InitDefaultCommand();
 	void DrivingWithJoystick();
+	void DrivingWithVision(float,float);
 	void NormalizeInputs(float&,float&,float&,float&);
 	float SmoothMotion(float motorSpeed, float speed, float accelLim);
 	bool fieldOrient;

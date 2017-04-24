@@ -118,6 +118,29 @@ void Robot::TeleopPeriodic() {
 	Scheduler::GetInstance()->Run();
 	SmartDashboardStuff();
 	Robot::vision->displayPixy();
+	float xGo, yGo = 0;
+
+	if ((visionCheck->HighGoalDistance() <= (desiredDistance * 1.1)) && (visionCheck->HighGoalDistance() >= (desiredDistance * .9))) {
+		// Deadzone
+	}
+	else if (desiredDistance > visionCheck->HighGoalDistance()) {
+		yGo = .35;
+	}
+	else if (desiredDistance < visionCheck->HighGoalDistance()) {
+		yGo = -.35;
+	}
+
+	if ((visionCheck->HighGoalPosX() <= (desiredX * 1.1)) && (visionCheck->HighGoalPosX() >= (desiredX * .9))) {
+		// Deadzone
+	}
+	else if (desiredDistance > visionCheck->HighGoalPosX()) {
+		xGo = .35;
+	}
+	else if (desiredDistance < visionCheck->HighGoalPosX()) {
+		xGo = - .35;
+	}
+
+	drivetrain->DrivingWithVision(xGo,yGo);
 }
 
 void Robot::TestPeriodic() {
