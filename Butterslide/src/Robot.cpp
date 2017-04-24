@@ -120,6 +120,8 @@ void Robot::TeleopPeriodic() {
 	Robot::vision->displayPixy();
 	float xGo, yGo = 0;
 
+	visionCheck->PopulateHighGoalVals();
+
 	if ((visionCheck->HighGoalDistance() <= (desiredDistance * 1.1)) && (visionCheck->HighGoalDistance() >= (desiredDistance * .9))) {
 		// Deadzone
 		yGo = 0;

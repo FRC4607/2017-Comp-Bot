@@ -55,15 +55,12 @@ void VisionCheck::PopulateHighGoalVals() {
 }
 
 float VisionCheck::HighGoalDistance() {
-	this->PopulateHighGoalVals();
 	return HighGoalPos[2];
 }
 float VisionCheck::HighGoalPosX() {
-	this->PopulateHighGoalVals();
 	return HighGoalPos[0];
 }
 float VisionCheck::HighGoalPosY() {
-	this->PopulateHighGoalVals();
 	return HighGoalPos[1];
 }
 
