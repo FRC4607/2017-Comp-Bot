@@ -5,7 +5,6 @@ RotateToAngle::RotateToAngle(double boat) {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(Robot::chassis.get());
 	this->setpoint=boat;
-	Robot::drivetrain->SetTargetLock(false);
 	Requires(Robot::drivetrain.get());
 }
 
