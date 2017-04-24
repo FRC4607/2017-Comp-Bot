@@ -122,6 +122,7 @@ void Robot::TeleopPeriodic() {
 
 	if ((visionCheck->HighGoalDistance() <= (desiredDistance * 1.1)) && (visionCheck->HighGoalDistance() >= (desiredDistance * .9))) {
 		// Deadzone
+		yGo = 0;
 	}
 	else if (desiredDistance > visionCheck->HighGoalDistance()) {
 		yGo = .35;
@@ -132,6 +133,7 @@ void Robot::TeleopPeriodic() {
 
 	if ((visionCheck->HighGoalPosX() <= (desiredX * 1.1)) && (visionCheck->HighGoalPosX() >= (desiredX * .9))) {
 		// Deadzone
+		xGo = 0;
 	}
 	else if (desiredX > visionCheck->HighGoalPosX()) {
 		xGo = .35;
