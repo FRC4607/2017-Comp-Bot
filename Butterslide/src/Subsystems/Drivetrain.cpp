@@ -40,6 +40,8 @@ Drivetrain::Drivetrain() : PIDSubsystem("Drivetrain" , .09,0,.0025) {
     rightSpeed=0;
     frontStrafeSpeed=0;
     rearStrafeSpeed=0;
+    y = 0;
+    x=0;
 
     // these are where the inputs of x and y come into play. They are currently set to 1 just because I don't have the input yet.
 
@@ -57,7 +59,7 @@ void Drivetrain::InitDefaultCommand() {
 
 void Drivetrain::DrivingWithJoystick() {
 	std::shared_ptr<Joystick> joy = Robot::oi->getDriver();
-	float x,y;
+	float x,y, z;
 	float const PI= 3.14159;
 	float adjustmentAngle = PI/2;
 	std::shared_ptr<Joystick> Pilot=joy;
@@ -69,14 +71,21 @@ void Drivetrain::DrivingWithJoystick() {
 	}
 	x=Pilot->GetMagnitude()*cos(Pilot->GetDirectionRadians()-adjustmentAngle);
 	y=Pilot->GetMagnitude()*sin(Pilot->GetDirectionRadians()-adjustmentAngle);
+	z = joy->GetZ();
 
-	leftSpeed = y- joy->GetZ();
-	rightSpeed = y*-1 - joy->GetZ() ;
 
 	if( Robot::oi->driverIsXbox){
-		leftSpeed = y- joy->GetX(Joystick::kRightHand);
-		rightSpeed = y*-1 - joy->GetX(Joystick::kRightHand);
+		z = joy->GetX(Joystick::kRightHand);
 	}
+
+	if(targetLock){
+		//Inverting because it will be inverted again next,
+		//Could be wrong though
+		z = -1*leftSpeedAdjustment;
+	}
+
+	leftSpeed = y- z;
+	rightSpeed = y*-1 - z;
 
 	frontStrafeSpeed = x*-2;
 	rearStrafeSpeed = x*2;
@@ -185,8 +194,8 @@ double Drivetrain::ReturnPIDInput() {
 
 void Drivetrain::UsePIDOutput(double output) {
 	if( drivetrainPIDRunning){
-		leftSpeed = -output;
-		rightSpeed = -output;
+		leftSpeedAdjustment = -output;
+		rightSpeedAdjustment = -output;
 	}
 	else{
 		frontRight->Set(-output);
@@ -194,6 +203,13 @@ void Drivetrain::UsePIDOutput(double output) {
 		rearLeft->Set(-output);
 		rearRight->Set(-output);
 	}
+}
+
+void Drivetrain::SetTargetLock(bool t){
+	targetLock = t;
+}
+bool Drivetrain::GetTargetLock(){
+	return targetLock;
 }
 
 

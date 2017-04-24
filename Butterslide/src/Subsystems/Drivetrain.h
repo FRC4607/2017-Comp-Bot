@@ -49,10 +49,14 @@ public:
 	bool GetFieldOrient();
 	double *FieldOriented(double, double, double);
 	bool drivetrainPIDRunning = false;
-	float leftSpeed,rightSpeed,frontStrafeSpeed,rearStrafeSpeed;
+	bool targetLock = false;
+	float leftSpeedAdjustment,rightSpeedAdjustment,
+	leftSpeed, rightSpeed, frontStrafeSpeed,rearStrafeSpeed;
 	double ReturnPIDInput();
 	void UsePIDOutput(double output);
 	void AllignWithGearPeg();
+    bool GetTargetLock();
+    void SetTargetLock(bool);
 	double x;
 	double y;
 	double springX = 0;

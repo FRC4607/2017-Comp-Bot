@@ -53,6 +53,7 @@ public:
     float desiredDistance = 2;
     float desiredX = 640;
     double autoSpeed;
+
     Robot();
 	virtual void RobotInit();
 	virtual void DisabledInit();
@@ -64,5 +65,6 @@ public:
 	virtual void TestPeriodic();
 	virtual void RobotPeriodic();
 	void SmartDashboardStuff();
+
 };
 #endif

@@ -8,7 +8,11 @@ EnableDriving::EnableDriving() {
 
 // Called just before this Command runs the first time
 void EnableDriving::Initialize() {
-	Robot::drivetrain->Enable();
+
+	//Turn off target lock
+	Robot::drivetrain->SetTargetLock(false);
+
+	Robot::drivetrain->Disable();
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -18,12 +22,12 @@ void EnableDriving::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool EnableDriving::IsFinished() {
-	return false;
+	return true;
 }
 
 // Called once after isFinished returns true
 void EnableDriving::End() {
-	Robot::drivetrain->Disable();
+
 }
 
 // Called when another command which requires one or more of the same
