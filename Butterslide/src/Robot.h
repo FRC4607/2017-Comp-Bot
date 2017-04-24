@@ -51,6 +51,7 @@ public:
     std::unique_ptr<Command> gearAutoRight {new AutoDrive(AutoDrive::Right) };
   //std::unique_ptr<Command> crossTheStreetMitchel {new AutoForward(.4 , 3) };
     double autoSpeed;
+
     Robot();
 	virtual void RobotInit();
 	virtual void DisabledInit();
@@ -62,5 +63,6 @@ public:
 	virtual void TestPeriodic();
 	virtual void RobotPeriodic();
 	void SmartDashboardStuff();
+
 };
 #endif

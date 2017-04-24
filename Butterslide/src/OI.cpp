@@ -89,8 +89,11 @@ OI::OI() {
    //rotateToAngle.reset(new JoystickButton(driver.get(), 4));
    //rotateToAngle->WhenPressed(new RotateToAngle(420));
 
-   // enableDriving.reset(new JoystickButton(driver.get(), enableDrivingBtn));
-  //  enableDriving->WhenPressed(new Driving());
+   rotateToTarget.reset(new JoystickButton(driver.get(), 4));
+   rotateToTarget->WhenPressed(new RotateToAngle(0, true));
+
+   enableDriving.reset(new JoystickButton(driver.get(), enableDrivingBtn));
+   enableDriving->WhenPressed(new Driving());
 
   //  strafePID.reset(new JoystickButton(driver.get(), 5));
    // strafePID->WhenPressed(new DrivetrainPID(0,0,36,false,false,0));
