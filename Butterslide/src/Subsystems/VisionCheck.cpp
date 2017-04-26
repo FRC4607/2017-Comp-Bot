@@ -69,3 +69,28 @@ void VisionCheck::DisplayValuesOnSD() {
 	SmartDashboard::PutNumber("High Goal X", this->HighGoalPosX());
 	SmartDashboard::PutNumber("High Goal Y", this->HighGoalPosY());
 }
+
+void VisionCheck::CreateHSVEntriesOnSD() {
+	SmartDashboard::PutNumber("H_MIN", 0);
+	SmartDashboard::PutNumber("H_MAX", 255);
+	SmartDashboard::PutNumber("S_MIN", 0);
+	SmartDashboard::PutNumber("S_MAX", 255);
+	SmartDashboard::PutNumber("V_MIN", 0);
+	SmartDashboard::PutNumber("V_MAX", 255);
+
+	SmartDashboard::SetPersistent("H_MIN");
+	SmartDashboard::SetPersistent("H_MAX");
+	SmartDashboard::SetPersistent("S_MIN");
+	SmartDashboard::SetPersistent("S_MAX");
+	SmartDashboard::SetPersistent("V_MIN");
+	SmartDashboard::SetPersistent("V_MAX");
+}
+
+void VisionCheck::SendHSVEntriesToTX1() {
+	vnt->PutNumber("H_MIN", SmartDashboard::GetNumber("H_MIN", 0));
+	vnt->PutNumber("H_MAX", SmartDashboard::GetNumber("H_MAX", 0));
+	vnt->PutNumber("S_MIN", SmartDashboard::GetNumber("S_MIN", 0));
+	vnt->PutNumber("S_MAX", SmartDashboard::GetNumber("S_MAX", 0));
+	vnt->PutNumber("V_MIN", SmartDashboard::GetNumber("V_MIN", 0));
+	vnt->PutNumber("V_MAX", SmartDashboard::GetNumber("V_MAX", 0));
+}

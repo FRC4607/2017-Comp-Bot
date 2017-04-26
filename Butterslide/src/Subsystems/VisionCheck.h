@@ -13,6 +13,7 @@
 #define VISION_CHECK_H
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
+#include "opencv2/core.hpp"
 
 /**
  *
@@ -44,6 +45,8 @@ public:
 	float HighGoalPosY();
 
 	void DisplayValuesOnSD();
+	void CreateHSVEntriesOnSD();
+	void SendHSVEntriesToTX1();
 };
 
 #endif
