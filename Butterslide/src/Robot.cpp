@@ -70,6 +70,10 @@ void Robot::RobotInit() {
 	autoChooser.AddObject("AutoShoot Command", new AutoShoot());
 
 	SmartDashboard::PutData("Auto Mode", &autoChooser);
+
+	std::thread visionThread(visionCheck->VisionThread);
+	visionThread.detach();
+
 }
 
 /**
@@ -83,9 +87,6 @@ void Robot::DisabledInit(){
 void Robot::DisabledPeriodic() {
 	Scheduler::GetInstance()->Run();
 	Robot::vision->displayPixy();
-	visionCheck->PopulateHighGoalVals();
-	visionCheck->DisplayValuesOnSD();
-
 }
 
 void Robot::RobotPeriodic(){
@@ -94,6 +95,8 @@ void Robot::RobotPeriodic(){
 	//	std::vector<double> widthArray = table->GetNumberArray("width", llvm::ArrayRef<double>());
 	//	std::vector<double> heightArray = table->GetNumberArray("height", llvm::ArrayRef<double>());
 	Robot::vision->displayPixy();
+	visionCheck->PopulateHighGoalVals();
+	visionCheck->DisplayValuesOnSD();
 	visionCheck->SendHSVEntriesToTX1();
 }
 
@@ -122,31 +125,29 @@ void Robot::TeleopPeriodic() {
 	Robot::vision->displayPixy();
 	float xGo, yGo = 0;
 
-	visionCheck->PopulateHighGoalVals();
-
-//	if ((visionCheck->HighGoalDistance() <= (desiredDistance * 1.1)) && (visionCheck->HighGoalDistance() >= (desiredDistance * .9))) {
-//		// Deadzone
-//		yGo = 0;
-//	}
-//	else if (desiredDistance > visionCheck->HighGoalDistance()) {
-//		yGo = .35;
-//	}
-//	else if (desiredDistance < visionCheck->HighGoalDistance()) {
-//		yGo = -.35;
-//	}
-//
-//	if ((visionCheck->HighGoalPosX() <= (desiredX * 1.1)) && (visionCheck->HighGoalPosX() >= (desiredX * .9))) {
-//		// Deadzone
-//		xGo = 0;
-//	}
-//	else if (desiredX > visionCheck->HighGoalPosX()) {
-//		xGo = .35;
-//	}
-//	else if (desiredX < visionCheck->HighGoalPosX()) {
-//		xGo = - .35;
-//	}
-//
-//	drivetrain->DrivingWithVision(xGo,yGo);
+	//	if ((visionCheck->HighGoalDistance() <= (desiredDistance * 1.1)) && (visionCheck->HighGoalDistance() >= (desiredDistance * .9))) {
+	//		// Deadzone
+	//		yGo = 0;
+	//	}
+	//	else if (desiredDistance > visionCheck->HighGoalDistance()) {
+	//		yGo = .35;
+	//	}
+	//	else if (desiredDistance < visionCheck->HighGoalDistance()) {
+	//		yGo = -.35;
+	//	}
+	//
+	//	if ((visionCheck->HighGoalPosX() <= (desiredX * 1.1)) && (visionCheck->HighGoalPosX() >= (desiredX * .9))) {
+	//		// Deadzone
+	//		xGo = 0;
+	//	}
+	//	else if (desiredX > visionCheck->HighGoalPosX()) {
+	//		xGo = .35;
+	//	}
+	//	else if (desiredX < visionCheck->HighGoalPosX()) {
+	//		xGo = - .35;
+	//	}
+	//
+	//	drivetrain->DrivingWithVision(xGo,yGo);
 }
 
 void Robot::TestPeriodic() {

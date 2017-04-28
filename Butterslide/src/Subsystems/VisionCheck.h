@@ -14,6 +14,10 @@
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
 #include "opencv2/core.hpp"
+#include "opencv2/imgcodecs.hpp"
+#include "opencv2/imgproc/imgproc.hpp""
+#include "networktables/NetworkTable.h"
+#include "SmartDashboard/SmartDashboard.h"
 
 /**
  *
@@ -31,6 +35,7 @@ private:
 
 	llvm::ArrayRef<double> HighGoalPos;
 	std::shared_ptr<NetworkTable> vnt;
+	cs::CvSource zed_cam_server;
 
 public:
 	VisionCheck();
@@ -45,8 +50,12 @@ public:
 	float HighGoalPosY();
 
 	void DisplayValuesOnSD();
-	void CreateHSVEntriesOnSD();
+	void CreateCameraEntriesOnSD();
 	void SendHSVEntriesToTX1();
+	void CheckForHSVUpdatesFromCore();
+	void SendCameraSettingsToTX1();
+	llvm::StringRef GetImage();
+	void VisionThread();
 };
 
 #endif
