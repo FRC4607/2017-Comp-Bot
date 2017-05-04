@@ -124,7 +124,11 @@ llvm::StringRef VisionCheck::GetImage() {
 	return(vnt->GetRaw("hg_image", ""));
 }
 
-void VisionCheck::VisionThread() {
+std::thread VisionCheck::VisionThread() {
+	return std::thread(&VisionCheck::CamDisplay, this);
+}
+
+void VisionCheck::CamDisplay() {
 	zed_cam_server = CameraServer::GetInstance()->PutVideo("Zed", 702, 404);
 
 	cv::Mat image_mat, image, output;

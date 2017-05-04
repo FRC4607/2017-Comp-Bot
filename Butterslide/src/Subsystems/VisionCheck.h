@@ -15,7 +15,7 @@
 #include "WPILib.h"
 #include "opencv2/core.hpp"
 #include "opencv2/imgcodecs.hpp"
-#include "opencv2/imgproc/imgproc.hpp""
+#include "opencv2/imgproc/imgproc.hpp"
 #include "networktables/NetworkTable.h"
 #include "SmartDashboard/SmartDashboard.h"
 
@@ -55,7 +55,8 @@ public:
 	void CheckForHSVUpdatesFromCore();
 	void SendCameraSettingsToTX1();
 	llvm::StringRef GetImage();
-	void VisionThread();
+	std::thread VisionThread();
+	void CamDisplay();
 };
 
 #endif

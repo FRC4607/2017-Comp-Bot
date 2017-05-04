@@ -14,7 +14,7 @@
 #include "WPILib.h"
 #include "AHRS.h"
 #include "CANTalon.h"
-#include "CANTalonSRX.h"
+#include "CanTalonSRX.h"
 #include "DigitalSource.h"
 #include "Encoder.h"
 //#include "Pixyi2C.h"
