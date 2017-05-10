@@ -81,7 +81,13 @@ void VisionCheck::CreateCameraEntriesOnSD() {
 	SmartDashboard::PutNumber("S_MAX", 255);
 	SmartDashboard::PutNumber("V_MIN", 0);
 	SmartDashboard::PutNumber("V_MAX", 255);
-	SmartDashboard::PutNumber("Exposure", 100);
+	SmartDashboard::PutNumber("Brightness (-1 Auto, 0-8)", -1);
+	SmartDashboard::PutNumber("Contrast (-1 Auto, 0-8)", -1);
+	SmartDashboard::PutNumber("Hue (-1 Auto, 0-11)", -1);
+	SmartDashboard::PutNumber("Saturation (-1 Auto, 0-8)", -1);
+	SmartDashboard::PutNumber("Gain (-1 Auto, 0-100)", -1);
+	SmartDashboard::PutNumber("Exposure (-1 Auto, 0-100)", -1);
+	SmartDashboard::PutNumber("White Balance (-1 Auto, 2800-6500)", -1);
 
 	SmartDashboard::SetPersistent("H_MIN");
 	SmartDashboard::SetPersistent("H_MAX");
@@ -89,7 +95,13 @@ void VisionCheck::CreateCameraEntriesOnSD() {
 	SmartDashboard::SetPersistent("S_MAX");
 	SmartDashboard::SetPersistent("V_MIN");
 	SmartDashboard::SetPersistent("V_MAX");
-	SmartDashboard::SetPersistent("Exposure");
+	SmartDashboard::SetPersistent("Brightness (-1 Auto, 0-8)");
+	SmartDashboard::SetPersistent("Contrast (-1 Auto, 0-8)");
+	SmartDashboard::SetPersistent("Hue (-1 Auto, 0-11)");
+	SmartDashboard::SetPersistent("Saturation (-1 Auto, 0-8)");
+	SmartDashboard::SetPersistent("Gain (-1 Auto, 0-100)");
+	SmartDashboard::SetPersistent("Exposure (-1 Auto, 0-100)");
+	SmartDashboard::SetPersistent("White Balance (-1 Auto, 2800-6500)");
 }
 
 void VisionCheck::CheckForHSVUpdatesFromCore() {
@@ -117,8 +129,14 @@ void VisionCheck::SendHSVEntriesToCore() {
 }
 
 void VisionCheck::SendCameraSettingsToCore() {
-	vnt->PutBoolean("CameraSettings", true);
-	vnt->PutNumber("Exposure", SmartDashboard::GetNumber("Exposure", 100));
+	vnt->PutBoolean("CamSettingsFromSD", true);
+	vnt->PutNumber("Brightness", SmartDashboard::GetNumber("Brightness (-1 Auto, 0-8)", -1));
+	vnt->PutNumber("Contrast", SmartDashboard::GetNumber("Contrast (-1 Auto, 0-8)", -1));
+	vnt->PutNumber("Hue", SmartDashboard::GetNumber("Hue (-1 Auto, 0-11)", -1));
+	vnt->PutNumber("Saturation", SmartDashboard::GetNumber("Saturation (-1 Auto, 0-8)", -1));
+	vnt->PutNumber("Gain", SmartDashboard::GetNumber("Gain (-1 Auto, 0-100)", -1));
+	vnt->PutNumber("Exposure", SmartDashboard::GetNumber("Exposure (-1 Auto, 0-100)", -1));
+	vnt->PutNumber("WhiteBalance", SmartDashboard::GetNumber("White Balance (-1 Auto, 2800-6500)", -1));
 }
 
 std::thread VisionCheck::VisionThread() {
@@ -130,6 +148,7 @@ void VisionCheck::HouseKeeping() {
 	this->CheckForHSVUpdatesFromCore();
 	this->DisplayValuesOnSD();
 	this->SendHSVEntriesToCore();
+	this->SendCameraSettingsToCore();
 }
 
 void VisionCheck::DisplayCams() {
