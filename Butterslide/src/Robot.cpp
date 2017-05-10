@@ -95,9 +95,7 @@ void Robot::RobotPeriodic(){
 	//	std::vector<double> widthArray = table->GetNumberArray("width", llvm::ArrayRef<double>());
 	//	std::vector<double> heightArray = table->GetNumberArray("height", llvm::ArrayRef<double>());
 	Robot::vision->displayPixy();
-	visionCheck->PopulateHighGoalVals();
-	visionCheck->DisplayValuesOnSD();
-	visionCheck->SendHSVEntriesToTX1();
+	visionCheck->HouseKeeping();
 }
 
 void Robot::AutonomousInit() {

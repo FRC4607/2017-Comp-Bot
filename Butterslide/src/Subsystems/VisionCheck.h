@@ -13,11 +13,9 @@
 #define VISION_CHECK_H
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
-#include "opencv2/core.hpp"
-#include "opencv2/imgcodecs.hpp"
-#include "opencv2/imgproc/imgproc.hpp"
 #include "networktables/NetworkTable.h"
 #include "SmartDashboard/SmartDashboard.h"
+#include "CamDisplay.h"
 
 /**
  *
@@ -35,7 +33,7 @@ private:
 
 	llvm::ArrayRef<double> HighGoalPos;
 	std::shared_ptr<NetworkTable> vnt;
-	cs::CvSource zed_cam_server;
+	std::vector<CamDisplay*> cam_displays;
 
 public:
 	VisionCheck();
@@ -51,12 +49,12 @@ public:
 
 	void DisplayValuesOnSD();
 	void CreateCameraEntriesOnSD();
-	void SendHSVEntriesToTX1();
+	void SendHSVEntriesToCore();
 	void CheckForHSVUpdatesFromCore();
-	void SendCameraSettingsToTX1();
-	llvm::StringRef GetImage();
+	void SendCameraSettingsToCore();
+	void HouseKeeping();
 	std::thread VisionThread();
-	void CamDisplay();
+	void DisplayCams();
 };
 
 #endif
