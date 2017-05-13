@@ -11,7 +11,8 @@ private:
 	std::shared_ptr<CANTalon> loader;
 	std::shared_ptr<CANTalon> sucker;
 	std::shared_ptr<CANTalon> climber;
-
+	std::shared_ptr<CANTalon> gearIntaker;
+	std::shared_ptr<CANTalon> gearLifter;
 public:
 	Intake();
 
@@ -19,6 +20,8 @@ public:
 	void ElevatorSpeed(float);
 	void FloorIntakeSpeed(float);
 	void ClimberSpeed(float);
+	void GearIntakeSpeed(float);
+	void GearLiftSPeed(float);
 };
 
 #endif  // Intake_H

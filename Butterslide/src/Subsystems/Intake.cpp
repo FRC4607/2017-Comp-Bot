@@ -5,6 +5,9 @@ Intake::Intake() : Subsystem("Intake") {
 	loader = RobotMap::ammoElevator;
 	sucker = RobotMap::ammoIntake;
 	climber = RobotMap::ropeMonster;
+	gearIntaker = RobotMap::gearIntake;
+	gearLifter = RobotMap::gearLift;
+
 }
 
 void Intake::InitDefaultCommand() {
@@ -25,4 +28,12 @@ void Intake::FloorIntakeSpeed(float speed){
 
 void Intake::ClimberSpeed(float speed){
 	climber->Set(speed);
+}
+
+void Intake::GearIntakeSpeed(float speed){
+	gearIntaker->Set(speed);
+}
+
+void Intake::GearLiftSPeed(float speed){
+	gearLifter->Set(speed);
 }
