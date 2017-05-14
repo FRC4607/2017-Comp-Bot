@@ -13,7 +13,9 @@ void GearEject::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void GearEject::Execute() {
 	RobotMap::gearIntake->Set(-.5);
-	}
+	RobotMap::gearIsInXDDD->Set(false);
+	RobotMap::gearIsNotInXDDD->Set(true);
+}
 
 // Make this return true when this Command no longer needs to run execute()
 bool GearEject::IsFinished() {

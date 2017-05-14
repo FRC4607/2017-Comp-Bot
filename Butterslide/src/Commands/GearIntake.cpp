@@ -12,17 +12,19 @@ void GearIntake::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void GearIntake::Execute() {
-	RobotMap::gearIntake->Set(-.5);
+	RobotMap::gearIntake->Set(.5);
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool GearIntake::IsFinished() {
-	if (RobotMap::gearIntake->GetReverseLimitOK() == false) {
+	if (RobotMap::gearIntake->GetForwardLimitOK() == false) {
 		RobotMap::gearIsInXDDD->Set(true);
+		RobotMap::gearIsNotInXDDD->Set(false);
 		return true;
 	}
 
 		else {
+			RobotMap::gearIsInXDDD->Set(false);
 			RobotMap::gearIsNotInXDDD->Set(true);
 			return false;
 	}
